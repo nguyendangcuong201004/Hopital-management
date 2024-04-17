@@ -1,0 +1,58 @@
+.card {
+    max-width: 30em;
+    flex-direction: row;
+    margin-bottom: 5rem;
+}
+.wrapper {
+    width: 800px;
+    height: 100em;
+    background-color: rgba(0, 0, 0, .1);
+    color: black;
+    padding-left: 10rem;
+    margin-top: 10rem;
+    margin-left: 20em;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    padding-right: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+    
+}
+
+.card img {
+    width: 25%;
+    padding: 0.5em;
+    border-radius: 0.7em;
+}
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+.card-text {
+
+    max-width: 60%;
+}
+.card-button {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.card-button .btn {
+    padding: 0.3em 0.5em;
+}
+ul {
+    list-style: none;
+    display: flex;
+
+}
+.checked {
+    color: orange;
+}
+
+[button-add-customer] {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+}
