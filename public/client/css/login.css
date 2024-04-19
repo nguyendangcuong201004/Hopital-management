@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: seagreen;
+    background-image: url(../images/thumb-1920-911207.jpg);
+    background-position: left;
+
+}
+.wrapper {
+    width: 500px;
+    background-color: white;
+    color: black;
+    padding-left: 2rem;
+    margin-top: 10rem;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    padding-right: 2rem;
+    background: transparent;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+}
+h1 {
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: .5rem;
+}
+
+.wrapper .input-login {
+
+    width: 100%;
+    padding-bottom: 5rem;
+    height: 50px;
+}
+.input-login input {
+    width: 80%;
+    background: transparent;
+    height: 100%;
+    padding: 20px 45px 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border-style: dashed;
+    border-color: black;
+}
+.input-login input::placeholder {
+    color: black;
+}
+.input-login i {
+
+    font-size: 20px;
+}
+.wrapper .remember-forget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.remember-forget a {
+    text-decoration: none;
+    color: black
+}
+.remember-forget a:hover {
+    text-decoration: underline;
+}
+.wrapper .btn {
+
+    width: 20%;
+    height: 45px;
+    position: relative;
+    font-size: 20px;
+    border-radius: 100px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(12, 11, 11, 0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+}
+.wrapper .register {
+    font-size: 14.5px;
+    text-align: center;
+}
+.register a {
+
+    color:  black;
+    text-decoration: none;
+    font-weight: 600;
+}

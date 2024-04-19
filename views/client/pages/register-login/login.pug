@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(
+      content="width=device-width, initial-scale=1.0" 
+      name="viewport"
+      )
+    link(
+      rel="stylesheet" 
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      )
+    link(
+      href="client/css/login.css" 
+      rel="stylesheet"
+      )
+    title Login
+  body
+    link(
+      href="" 
+      rel="stylesheet"
+      )
+    .wrapper
+      form(action="" method="POST")
+        h1 Đăng nhập
+        .input-login
+          i.bx.bx-user-circle
+          input#input-login(
+            required="" 
+            autofocus="" 
+            placeholder="Username" 
+            name="username" 
+            type="text"
+            )
+        .input-login
+          i.bx.bx-lock-alt
+          input#input-login(
+            placeholder="Password" 
+            name="password" 
+            type="password"
+            )
+        .remember-forget
+          label(for="")
+            input(type="checkbox")
+            | Lưu đăng nhập
+          a(href="") Quên mật khẩu
+        button.btn(type="submit")
+          i.bx.bx-right-arrow-alt
+        .register
+          a(href="/register") Tạo tài khoản
