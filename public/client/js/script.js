@@ -1,3 +1,5 @@
+// Slider
+
 
 let next3 = document.getElementById('next3');
 let prev3 = document.getElementById('prev3');
@@ -40,3 +42,9 @@ function updataDot (a) {
         dots_item1[active3].classList.add('active3');
     }
 }
+
+// Slider
+
+
+
+

@@ -10,4 +10,8 @@ router.get("/management-customer", controller.managementCustomer);
 
 router.get("/doctor-nurse", controller.doctorNurse);
 
+router.get("/doctor-nurse/create", controller.doctorNurseCreate);
+
+router.post("/doctor-nurse/create", controller.doctorNurseCreatePost);
+
 module.exports = router;

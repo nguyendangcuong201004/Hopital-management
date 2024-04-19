@@ -1,0 +1,133 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Nh&#x1EAD;p th&ocirc;ng tin Y T&aacute; 
+  link(rel='stylesheet' href='/client/css/nhap-nurse.css')
+body
+  section.container
+    .Intro
+      header Nh&#x1EAD;p th&ocirc;ng tin y t&aacute; 
+    .Main
+      form.form(
+        action='/doctor-nurse/create'
+        method="POST"
+        form-create-doctor-nurse
+        )
+        .personal-info
+          h2 Th&ocirc;ng tin c&aacute; nh&acirc;n
+          .input-box
+            label(for="hoten") Họ Và Tên 
+            input(
+              type='text' 
+              placeholder='Nguyễn Văn A' 
+              id="hoten"
+              name="hoten"
+              required
+              )
+          .gender-box
+            h3 Giới tính
+            .gender-option
+              .gender
+                input(
+                  type='radio' 
+                  name='gioitinh' 
+                  id="nam"
+                  value="nam"                )
+                label(for='nam') Nam
+              .gender
+                input(
+                  type='radio' 
+                  name='gioitinh'
+                  id="nu"
+                  value="nu"
+                  )
+                label(for='nu') N&#x1EEF;
+          .input-box
+            label(for="cccd") CCCD 
+            input(type='text' placeholder='------------' id="cccd" name="cccd")
+          .input-box
+            label(for="ngay-cap")  Ng&agrave;y c&#x1EA5;p
+            input(type='date' placeholder='dd/mm/yy' id="ngay-cap" name="ngaycap")
+          .input-box
+            label(for="ngay-sinh")  Ng&agrave;y sinh
+            input(type='date' placeholder='...' id="ngay-sinh" name="ngaysinh")
+          .input-box
+            label(for="dia-chi")  &Dstrok;&#x1ECB;a ch&#x1EC9; th&#x1B0;&#x1EDD;ng tr&uacute;
+            input(type='text' placeholder='Vinh, Nghệ An' id="dia-chi" name="diachi")
+          // Thêm mục load ảnh căn cước công dân
+          .input-box
+            label &#x1EA2;nh c&abreve;n c&#x1B0;&#x1EDB;c c&ocirc;ng d&acirc;n
+            input(type='file' accept='image/*')
+          // Thêm mục load ảnh chân dung
+          .input-box
+            label &#x1EA2;nh ch&acirc;n dung
+            input(type='file' accept='image/*')
+        .work-info
+          h2 Th&ocirc;ng tin l&agrave;m vi&#x1EC7;c
+          .input-box
+            label(for="bangcap")  B&#x1EB1;ng c&#x1EA5;p
+            select.selection(name="bangcap")
+              option(hidden='' value="none") Ch&#x1ECD;n
+              option(value="cao-dang")  Cao &dstrok;&#x1EB3;ng
+              option(value="cu-nhan")  C&#x1EED; nh&acirc;n
+              option(value="thac-si")  Th&#x1EA1;c s&itilde;
+              option(value="tien-si")  Ti&#x1EBF;n s&itilde;
+          .input-box
+            label(for="ngay-cap-bang")  Ng&agrave;y c&#x1EA5;p Bằng
+            input(type='date' placeholder='Ngày cấp' id="ngay-cap-bang" name="ngaycapbang")
+          .input-box
+            label Khoa
+            select.selection(name="khoa")
+              option(hidden='' value="none") Ch&#x1ECD;n
+              option(value="khoa-ngoai-tong-quat") Khoa Ngo&#x1EA1;i t&#x1ED5;ng qu&aacute;t
+              option(value="khoa-noi-tieu-hoa")  Khoa N&#x1ED9;i ti&ecirc;u h&oacute;a
+              option(value="khoa-tim-mach")  Khoa Tim m&#x1EA1;ch
+              option(value="khoa-ngoai-than-kinh")  Khoa Ngo&#x1EA1;i th&#x1EA7;n kinh
+              option(value="khoa-phau-thuat")  Khoa Ph&#x1EAB;u thu&#x1EAD;t
+              option(value="khoa-san-phu")  Khoa S&#x1EA3;n ph&#x1EE5;
+              option(value="khoa-nhi")  Khoa Nhi
+              option(value="khoa-y-hoc-hat-nhan")  Khoa Y h&#x1ECD;c h&#x1EA1;t nh&acirc;n
+              option(value="khoa-y-te-cong-cong")  Khoa Y t&#x1EBF; c&ocirc;ng c&#x1ED9;ng
+              option(value="khoa-ho-tro")  Khoa h&#x1ECD;c h&#x1ED7; tr&#x1EE3;
+          .input-box
+            label Chuy&ecirc;n m&ocirc;n
+            select.selection(name="chuyenmon")
+              option(hidden='' value="none") Ch&#x1ECD;n
+              option(value="khoa-ngoai-tong-quat") Khoa Ngo&#x1EA1;i t&#x1ED5;ng qu&aacute;t
+              option(value="khoa-noi-tieu-hoa")  Khoa N&#x1ED9;i ti&ecirc;u h&oacute;a
+              option(value="khoa-tim-mach")  Khoa Tim m&#x1EA1;ch
+              option(value="khoa-ngoai-than-kinh")  Khoa Ngo&#x1EA1;i th&#x1EA7;n kinh
+              option(value="khoa-phau-thuat")  Khoa Ph&#x1EAB;u thu&#x1EAD;t
+              option(value="khoa-san-phu")  Khoa S&#x1EA3;n ph&#x1EE5;
+              option(value="khoa-nhi")  Khoa Nhi
+              option(value="khoa-y-hoc-hat-nhan")  Khoa Y h&#x1ECD;c h&#x1EA1;t nh&acirc;n
+              option(value="khoa-y-te-cong-cong")  Khoa Y t&#x1EBF; c&ocirc;ng c&#x1ED9;ng
+              option(value="khoa-ho-tro")  Khoa h&#x1ECD;c h&#x1ED7; tr&#x1EE3;
+          .input-box
+            label Ch&#x1EE9;c v&#x1EE5;
+            select.selection(name="chucvu")
+              option(hidden='' value="none") Ch&#x1ECD;n
+              option(value="y-ta-truong") Y tá trưởng 
+              option(value="y-ta-pho") Y tá phó 
+              option(value="y-ta-pho-thong") Y tá phổ thông 
+          .input-box
+            label C&#x1EA5;p b&#x1EAD;c
+            select.selection(name="capbac")
+              option(hidden='' value="none") Ch&#x1ECD;n
+              option(value="cao-cap") Cao c&#x1EA5;p
+              option(value="trung-cap") Trung c&#x1EA5;p
+              option(value="ha-cap") H&#x1EA1; c&#x1EA5;p
+              option(value="thuc-tap-sinh") Th&#x1EF1;c t&#x1EAD;p sinh
+          // Thêm mục load ảnh thẻ nhân viên
+          .input-box
+            label &#x1EA2;nh th&#x1EBB; nh&acirc;n vi&ecirc;n
+            input(type='file' accept='image/*')
+        .XacNhan
+          button(
+            type="submit"
+          ) XÁC NHẬN
+  script(src="/client/js/creare-doc-nurse.js") 
+
+    

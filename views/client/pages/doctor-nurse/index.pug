@@ -3,8 +3,8 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title &Yacute; t&aacute; | B&#x1EC7;nh vi&#x1EC7;n &Dstrok;a khoa MINONA
-  link(rel='stylesheet' href='client/css/style-nurse.css')
-  link(rel='stylesheet' href='client/css/themify-icons.css')
+  link(rel='stylesheet' href='/client/css/nurseWebsite-AdminMode.css')
+  link(rel='stylesheet' href='/client/css/themify-icons.css')
   link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
   link(rel='preconnect' href='https://fonts.googleapis.com')
   link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
@@ -12,35 +12,24 @@ head
 header
   nav
     .logo
-      img(src='client/images/1.png' alt='MIMONA logo')
+      img(src='/client/images/nursewebsitelogo.png' alt='MIMONA logo')
       h3
         | B&#x1EC6;NH VI&#x1EC6;N 
         br
         |  &Dstrok;A KHOA MIMONA
     ul.sub-nav
       li Gi&#x1EDB;i thi&#x1EC7;u
-      li Danh s&aacute;ch
-      li.root
-        p C&#x1EE5; th&#x1EC3;
-        span
-          i.tiny.material-icons chevron_right
-        ul.sub-sub-nav
-          li Chi ph&iacute; kh&aacute;m
-          li &Dstrok;&#x1EB7;t l&#x1ECB;ch
-          li Tin t&#x1EE9;c
-    ul.icon
-      li.active
-        a(href='#')
-          i.material-icons home
       li
-        a(href='#')
-          i.material-icons local_phone
-      li
-        a(href='#')
-          i.material-icons local_post_office
-      li
-        a(href='#')
-          i.material-icons person
+        a(href='#lucluongyta') Danh s&aacute;ch
+      li Chi ph&iacute; kh&aacute;m
+      li &Dstrok;&#x1EB7;t l&#x1ECB;ch
+      li Tin t&#x1EE9;c
+    ul
+      button.login-button
+        a(href='#') &Dstrok;&abreve;ng nh&#x1EAD;p
+    ul
+      button.signin-button
+        a(href='#') &Dstrok;&abreve;ng k&yacute;
 .container
   .content
     .info
@@ -74,165 +63,80 @@ header
             p 96/304 y t&aacute; &Dstrok;&#x1EA1;t ki&#x1EC3;m &dstrok;&#x1ECB;nh Hoa K&#x1EF3;
           div
             p 50/304 y t&aacute; V&#x1B0;&#x1EE3;t chu&#x1EA9;n chuy&ecirc;n m&ocirc;n
-.nurse-list
+#lucluongyta.nurse-list
   .title
     | L&#x1EF0;C L&#x1AF;&#x1EE2;NG 
     span
       br
-      |  Y T&Aacute;
-  .nurse-info
-    .nurse-name
-      .nurse-more
-        .nurse-content
-          h3 Tr&#x1EA7;n Uy 
-          .star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-          .what
-            h3
-              i.material-icons person
-              | Y T&Aacute; H&#x1EAC;U PH&#x1EAA;U
-            h3
-              i.material-icons local_offer
-              | Th&#x1EF1;c t&#x1EAD;p sinh
-      .nurse-more
-        .nurse-content
-          h3 Nguy&#x1EC5;n L&ecirc; Ho&agrave;ng Ph&uacute;c
-          .star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-          .what
-            h3
-              i.material-icons person
-              | Y T&Aacute; PH&#x1EAA;U THU&#x1EAC;T
-            h3
-              i.material-icons local_offer
-              | C&#x1EA5;p cao
-      .nurse-more
-        .nurse-content
-          h3 V&otilde; Nguy&#x1EC5;n &Dstrok;&#x1EE9;c Ph&aacute;t 
-          .star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-          .what
-            h3
-              i.material-icons person
-              | Y T&Aacute; NGHI&Ecirc;N C&#x1EE8;U
-            h3
-              i.material-icons local_offer
-              | C&#x1EA5;p trung
-      .nurse-more
-        .nurse-content
-          h3 Tr&#x1EA7;n Qu&#x1ED1;c Phong 
-          .star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-          .what
-            h3
-              i.material-icons person
-              | Y T&Aacute; &#x1EE8;NG PH&Oacute; KH&#x1EA8;N C&#x1EA4;P
-            h3
-              i.material-icons local_offer
-              | Th&#x1EF1;c t&#x1EAD;p sinh
-      .nurse-more
-        .nurse-content
-          h3 Nguy&#x1EC5;n B&aacute; Vi&#x1EC7;t Quang 
-          .star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-          .what
-            h3
-              i.material-icons person
-              | Y T&Aacute; H&#x1EAC;U PH&#x1EAA;U
-            h3
-              i.material-icons local_offer
-              | Chuy&ecirc;n vi&ecirc;n
-      .nurse-more
-        .nurse-content
-          h3 Ho&agrave;ng Ngh&itilde;a To&agrave;n Phi 
-          .star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star
-            i.material-icons star_border
-          .what
-            h3
-              i.material-icons person
-              | Y T&Aacute; CH&Abreve;M S&Oacute;C
-            h3
-              i.material-icons local_offer
-              | Th&#x1EF1;c t&#x1EAD;p sinh
+      |  Y T&Aacute; 
+      br
+    button.add-button
+      a(href='/doctor-nurse/create') Th&ecirc;m m&#x1EDB;i
+  ul.nurse-info
+    each yta in records  
+      .nurse-name
+        li.nurse-more
+          .nurse-content
+            h3 #{yta.hoten}
+            .star
+              i.material-icons star
+              i.material-icons star
+              i.material-icons star
+              i.material-icons star
+              i.material-icons star
+            .what
+              h3
+                i.material-icons person
+                | #{yta.khoa}
+              h3
+                i.material-icons local_offer
+                | #{yta.capbac}
 .loop-slider
   .background-img
   .background
     .title
       div
-        img(src='client/images/icon.webp' alt='')
-      div
         h1
-          | Y T&Aacute; 
-          span TI&Ecirc;U BI&#x1EC2;U
+          b
+            | Y T&Aacute; 
+            span TI&Ecirc;U BI&#x1EC2;U
       div
         p.des Y t&aacute; v&#x1EDB;i nh&#x1EEF;ng th&agrave;nh t&iacute;ch v&agrave; &dstrok;&oacute;ng g&oacute;p to l&#x1EDB;n 
     // The pictures and desc
     .slider
       .item
-        img(src='client/images/3.png' alt='')
+        img(src='client/images/yta1.png' alt='')
         h2 Tr&#x1EA7;n Uy 
         p Th&agrave;nh t&iacute;ch: &Dstrok;&#x1EA1;t gi&#x1EA3;i y t&aacute; &dstrok;&#x1B0;&#x1EE3;c y&ecirc;u m&#x1EBF;n nh&#x1EA5;t
-        button.shop.display-none()
-          | Chi
-          | ti&#x1EBF;t
+        button.shop.display-none(onclick="window.location.href = 'sub_page_nurseWebsite/info1.html';") Chi ti&#x1EBF;t
       .item
-        img(src='client/images/5.png' alt='')
+        img(src='/client/images/yta2.png' alt='')
         h2 Nguy&#x1EC5;n L&ecirc; Ho&agrave;ng Ph&uacute;c
         p
           | Th&agrave;nh t&iacute;ch: &Dstrok;&#x1EA1;t gi&#x1EA3;i nh&#x1EA5;t c&#x1EA5;p qu&#x1ED1;c gia cu&#x1ED9;c thi x&aacute;c su&#x1EA5;t th&#x1ED1;ng k&ecirc; v&agrave; h&oacute;a &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng cho y t&aacute;
-        button.shop.display-none()
-          | Chi
-          | ti&#x1EBF;t
+        button.shop.display-none(onclick="window.location.href = 'sub_page_nurseWebsite/info2.html';") Chi ti&#x1EBF;t
       .item
-        img(src='client/images/4.png' alt='')
+        img(src='/client/images/yta3.png' alt='')
         h2 V&otilde; Nguy&#x1EC5;n &Dstrok;&#x1EE9;c Ph&aacute;t 
         p Th&agrave;nh t&iacute;ch: Gi&#x1EA3;i nh&#x1EA5;t hoa h&#x1EAD;u y t&aacute; m&ugrave;a 2024
-        button.shop.display-none()
-          | Chi
-          | ti&#x1EBF;t
+        button.shop.display-none(onclick="window.location.href = 'sub_page_nurseWebsite/info3.html';") Chi ti&#x1EBF;t
       .item
-        img(src='client/images/7.png' alt='')
+        img(src='/client/images/yta4.png' alt='')
         h2 Tr&#x1EA7;n Qu&#x1ED1;c Phong 
         p Th&agrave;nh t&iacute;ch: &Dstrok;&#x1EA1;t gi&#x1EA3;i qu&#x1ED1;c gia v&#x1EC1; y t&aacute; duy&ecirc;n d&aacute;ng
-        button.shop.display-none()
-          | Chi
-          | ti&#x1EBF;t
+        button.shop.display-none(onclick="window.location.href = 'sub_page_nurseWebsite/info4.html';") Chi ti&#x1EBF;t
       .item
-        img(src='client/images/13.png' alt='')
+        img(src='/client/images/yta5.png' alt='')
         h2 Nguy&#x1EC5;n B&aacute; Vi&#x1EC7;t Quang 
         p Th&agrave;nh t&iacute;ch: &Dstrok;&#x1EA1;t gi&#x1EA3;i qu&#x1ED1;c t&#x1EBF; v&#x1EC1; cu&#x1ED9;c thi l&#x1EAD;p tr&igrave;nh cho y t&aacute;
-        button.shop.display-none()
+        button.shop.display-none(onclick="window.location.href = 'sub_page_nurseWebsite/info5.html';")
           | Chi
           | ti&#x1EBF;t
       .item
-        img(src='client/images/12.png' alt='')
+        img(src='/client/images/yta6.png' alt='')
         h2 Ho&agrave;ng Ngh&itilde;a To&agrave;n Phi
         p Th&agrave;nh t&iacute;ch: &Dstrok;&#x1EA1;t gi&#x1EA3;i qu&#x1ED1;c t&#x1EBF; v&#x1EC1; cu&#x1ED9;c thi &dstrok;i&#x1EC1;u d&#x1B0;&#x1EE1;ng
-        button.shop.display-none()
+        button.shop.display-none(onclick="window.location.href = 'sub_page_nurseWebsite/info6.html';")
           | Chi
           | ti&#x1EBF;t
     .dots
@@ -247,66 +151,16 @@ header
     // Button to move left and right
     .buttons3
       button#prev3
-        | &lt;&lt; /button&gt;
-      button#next3 &gt;
+        | &lt;
+      button#next3  &gt; 
 .contact
   .contact-title
     h1 Follow us on social media
   .contact-icon
-    .item(style='background-image: url(client/images/i.webp);')
-    .item(style='background-image: url(client/images/ii.webp);')
-    .item(style='background-image: url(client/images/iii.webp);')
-    .item(style='background-image: url(client/images/iv.webp);')
+    .item(style='background-image: url(assets/contact/i.webp);')
+    .item(style='background-image: url(assets/contact/ii.webp);')
+    .item(style='background-image: url(./assets/contact/iii.webp);')
+    .item(style='background-image: url(./assets/contact/iv.webp);')
 .cpr
   .cpr-contain
     p &copy;2024 MIMONA *&Dstrok;&atilde; &dstrok;&abreve;ng k&iacute; b&#x1EA3;n quy&#x1EC1;n th&#x1B0;&#x1A1;ng hi&#x1EC7;u.
-.footer
-  .name
-    img(src='client/images/1.png' alt='')
-    p MIMONA, tr&#x1B0;&#x1EDD;ng &Dstrok;HBK, &Dstrok;HQG TP.HCM, 268, L&yacute; Th&#x1B0;&#x1EDD;ng Ki&#x1EC7;t, P14, Q10, TP.HCM
-  .nav
-    .item
-      ul
-        li Gi&#x1EDD; m&#x1EDF; c&#x1EED;a
-        li Mon-Fri: 4:00 - 23:00
-        li Sat-Sun: 5:00 - 22:30
-        li C&#x1EA5;p c&#x1EE9;u 24/7
-        li Kh&ocirc;ng l&agrave;m vi&#x1EC7;c c&aacute;c ng&agrave;y l&#x1EC5;
-    .item
-      ul
-        li Ngu&#x1ED3;n t&agrave;i tr&#x1EE3;
-        li Tr&#x1B0;&#x1EDD;ng &Dstrok;&#x1EA1;i h&#x1ECD;c B&aacute;ch Khoa
-        li Trung t&acirc;m y t&#x1EBF; Qu&#x1ED1;c Gia
-        li C&aacute;c &dstrok;&#x1A1;n v&#x1ECB; kh&aacute;c
-    .item
-      ul
-        li K&#x1EBF;t n&#x1ED1;i
-        li.all-icon
-          .icon
-            img(src='client/images/i.webp' alt='')
-          .icon
-            img(src='client/images/ii.webp' alt='')
-          .icon
-            img(src='client/images/iii.webp' alt='')
-          .icon
-            img(src='client/images/iv.webp' alt='')
-        li &#x1EE8;ng d&#x1EE5;ng cho iOS
-        li &#x1EE8;ng d&#x1EE5;ng cho Android
-        li Tr&#x1EA3;i nghi&#x1EC7;m c&aacute;c d&#x1ECB;ch v&#x1EE5; m&#x1EDB;i nh&#x1EA5;t
-  .place
-    .lang
-      .ti-world
-      .country Viet Nam
-      .ti-angle-right
-    .info
-      ul
-        li Ch&iacute;nh s&aacute;ch
-        li.divider |
-        li Ch&iacute;nh s&aacute;ch ri&ecirc;ng t&#x1B0;
-        li.divider |
-        li T&agrave;i li&#x1EC7;u li&ecirc;n quan
-        li.divider |
-        li S&#x1A1; &dstrok;&#x1ED3; trang
-        li.divider |
-        li Kh&ocirc;ng thu th&#x1EAD;p d&#x1EEF; li&#x1EC7;u c&#x1EE7;a t&ocirc;i
-script(src='client/js/script.js')
