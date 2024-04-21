@@ -21,6 +21,6 @@ router.post("/doctor-nurse/create", controller.doctorNurseCreatePost);
 
 router.post("/register", controller.userAccountPost);
 
-// router.post("/login", controller.userAccountLoginPost)
+router.post("/login", controller.userAccountLoginPost)
 
 module.exports = router;

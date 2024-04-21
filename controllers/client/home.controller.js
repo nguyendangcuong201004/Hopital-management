@@ -49,11 +49,7 @@ module.exports.accountLogin= (req, res) => {
 module.exports.userAccountPost = async (req, res) => {
     // salt Rounds
     const saltRounds = 10;
-    const data = {
-        name: req.body.username,
-        password: req.body.password
-    }
-    const existingUser = await userCollection.findOne({name: data.name});
+    const existingUser = await userCollection.findOne({username: req.body.username});
     if (existingUser) {
         res.send("Tài khoản đã tồn tại");
     }
@@ -63,21 +59,29 @@ module.exports.userAccountPost = async (req, res) => {
         req.body.password = hashedPassword;
         const newRecord = new userCollection(req.body);
         await newRecord.save();
+        res.redirect("back");
     }
-    res.redirect("back");
 }
 
 // [POST] /login
 
-// module.exports.userAccountLoginPost = async (req, res) => {
-//     // salt Rounds
+module.exports.userAccountLoginPost = async (req, res) => {
+    // salt Rounds
+    const findUsername = await userCollection.findOne({username: req.body.username});
+    if (!findUsername) {
+        res.send("Sai mat khau");
+    }
+    else {
+        const isPasswordMatch = await bcrypt.compare(req.body.password, findUsername.password);
+        if (isPasswordMatch) {
+            res.redirect("doctor-nurse");
+        }
+        else {
+            res.send("Tài khoản hoặc mật khẩu không đúng");
+        }
+    }
 
-//     const check = await userCollection.findOne(req.body.username);
-//     const isPasswordMatched = await bcrypt.compare(req.body.password, check.password);
-//     if (isPasswordMatched) {
-//         res.send("Hello shop");
-//     }
-// }
+}
 
 // [GET] /register
 module.exports.accountRegister= (req, res) => {
