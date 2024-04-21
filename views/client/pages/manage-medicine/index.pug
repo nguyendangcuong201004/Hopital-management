@@ -1,0 +1,67 @@
+doctype html 
+head 
+    title Thong tin thuoc
+body 
+link(rel="stylesheet", href="client/css/medicine-info.css")
+section(class="title")
+    div(class="top")
+        div     
+            a(href="https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                button.return
+                    img(src="client/images/Hội_Chữ_thập_đỏ_Việt_Nam.svg.png", alt="")
+        div 
+            h1 Quản lý thuốc và thiết bị
+
+section 
+    form( id="type-form")
+        select(name="typeofdisplay", id="typeofdisplay")
+            option(value="") Tìm kiếm theo
+            option(value="op1") Sắp xếp theo thứ tự bảng chữ cái 
+            option(value="op2") Sắp xếp theo hạn sử dụng
+        button(type="submit", id="submit-button") Xác nhận 
+section(class="search")
+    form(action="",method='get',id="search-form")
+        input(type="text", name="medicineSearch",id="medicineSearch",placeholder="Tìm kiếm",value=medicineSearch)
+        button(type="submit", id="search-button") 
+            img(src="client/images/search-button-svg.svg")
+section(class="table")
+    h2 Danh sách thuốc và trang thiết bị
+    div(class="table-wrapper")
+        table(class="content-table",id="myTable")
+            thead   
+                tr 
+                    th STT           
+                    th Tên           
+                    th Slg           
+                    th Dvi           
+                    th Ngày nhập
+                    th HSD 
+                    th Ngày xuất kho 
+                    th Chỉnh sửa
+            -var i=0       
+            each item in medicine 
+                tr 
+                    td #{++i}
+                    td #{item.name}
+                    td #{item.quantity}                               
+                    td #{item.unit}                               
+                    td #{item.arriveDate}                               
+                    td #{item.expireDate} 
+                    td -
+                    td 
+                        button(
+                            button-delete 
+                            dataId=item.id 
+                        ) del      
+a(  class="addProduct"
+    href= "/manage-medicine/add-medicine"
+)  +Thêm mới               
+form(
+    action="",
+    method="POST",
+    id="form-delete-addMedicine"
+    data-path='/manage-medicine/delete-product'
+)       
+script(src="client/js/search.js") 
+script(src="client/js/filter.js") 
+script(src="client/js/deleteAddMedicine.js")

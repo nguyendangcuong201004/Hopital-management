@@ -1,0 +1,79 @@
+doctype html 
+head 
+title Nhap-thuoc
+link(rel="stylesheet", href="/client/css/nhap-thuoc.css")
+body    
+section(class="title")
+    div(class="top")
+        div
+            img(src="/client/images/Hội_Chữ_thập_đỏ_Việt_Nam.svg.png", alt="")
+        div 
+            h1 Dịch vụ nhân viên 
+section(class="form")
+    - var isRequired = true;
+    form(action="/manage-medicine/add-medicine", method='post', id="medicine-form", required=isRequired)
+        div(class='firstline')
+            div 
+                label(for='medicineName') Tên thuốc/ thiết bị y tế
+                input(type='text', name="medicineName", id='medicineName',placeholder='thuoc tri', required=isRequired) 
+            div 
+                label(for='medicineQuantity', id='cc') Số lượng
+                input(type='number', name="medicineQuantity", id='medicineQuantity',placeholder='666', required=isRequired) 
+            div 
+                label(for='medicineUnit', id="cc") Đơn vị
+                select(name="medicineUnit", id='medicineUnit', required=isRequired)
+                    option(value="") đơn vị
+                    option(value="Thùng") Thùng
+                    option(value="Hộp") Hộp
+                    option(value="Máy") Máy
+                    option(value="Bịch") Bịch
+        div(id='line')
+            label(for='dateArrive') Ngày nhập kho 
+            input(type='text',name='dateArrive',id='dateArrive',placeholder="08/21/2004", onfocus="(this.type='date')", required=isRequired)
+        div(id='line')
+            label(for='expiredDate') Hạn sử dụng 
+            input(type='text',name='expiredDate',id='expiredDate',placeholder="08/21/2004", onfocus="(this.type='date')", required=isRequired)
+    button(form="medicine-form") Thêm 
+section(class="table") 
+    div(class="table-wrapper")
+        table(class="content-table", id="myTable")
+            thead 
+                tr 
+                    th STT 
+                    th Tên
+                    th SoLg 
+                    th Dvi 
+                    th Ngày nhập
+                    th HSD 
+                    th Status
+                -var i = 0;
+            each item in addMedicine 
+                tr 
+                    td #{++i}
+                    td #{item.medicineName}
+                    td #{item.medicineQuantity}                               
+                    td #{item.medicineUnit}                               
+                    td #{item.dateArrive}                               
+                    td #{item.expiredDate}      
+                    td 
+                        button(
+                            button-delete 
+                            dataId=item.id 
+                        ) del
+
+button(
+    id="button-add" 
+) Thêm sản phẩm
+form(
+    action="/manage-medicine/add-medicine/add-all-products?_method=PATCH",
+    method="POST"
+    id="form-add-all-products"
+)
+form(
+    action="",
+    method="POST",
+    id="form-delete-addMedicine"
+    data-path='/manage-medicine/add-medicine/delete-add-product'
+)                         
+script(src="/client/js/deleteAddMedicine.js")
+script(src="/client/js/addAllMedicine.js")
