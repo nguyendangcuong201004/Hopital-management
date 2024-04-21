@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     expiredDate:String,
     expiredComp:Number,
     slug:{
-        type:String,
+        type: String,
         slug:"medicineName"
     },
     deleted:{
