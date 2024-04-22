@@ -1,5 +1,6 @@
 const express = require("express");
 const manageMedicineControllers= require("../../controllers/client/manage-medicine.controllers.js")
+const customerController = require('../../controllers/client/customer.controller.js');
 const controller = require("../../controllers/client/home.controller.js");
 
 const router = express.Router();
@@ -7,7 +8,11 @@ const bcrypt = require('bcrypt');
 
 router.get("/", controller.index);
 
-router.get("/management-customer", controller.managementCustomer);
+router.get('/management-customer', customerController.managementCustomer);
+router.get('/management-customer/create', customerController.createCustomer);
+router.post('/management-customer/create', customerController.createCustomerPost);
+
+module.exports = router;
 
 router.get("/doctor-nurse", controller.doctorNurse);
 
@@ -34,5 +39,9 @@ router.delete('/manage-medicine/add-medicine/delete-add-product/:id', manageMedi
 router.patch('/manage-medicine/add-medicine/add-all-products', manageMedicineControllers.addAllProduct);
 
 router.delete('/manage-medicine/delete-product/:id', manageMedicineControllers.deleteProduct);
+
+
+
+module.exports = router;
 
 module.exports = router;

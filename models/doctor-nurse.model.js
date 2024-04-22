@@ -16,6 +16,14 @@ const DoctorNurseSchema = new mongoose.Schema({
     chucvu: String,
     capbac: String,
     anhnhanvien: String,
+    customers: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Customer'
+    }],
+    active: {
+        type: Boolean,
+        default: true
+    }
 });
 
 const DoctorNurse = mongoose.model('DoctorNurse', DoctorNurseSchema, "doctor-nurse");

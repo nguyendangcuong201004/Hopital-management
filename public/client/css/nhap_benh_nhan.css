@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+@keyframes changeColor {
+    0% {
+        background-color: rgba(135, 206, 250, 0.703);
+    }
+
+    25% {
+        background-color: rgb(109, 107, 224);
+    }
+
+    50% {
+        background-color: rgba(153, 101, 203, 0.718);
+    }
+
+    75% {
+        background-color: rgba(153, 109, 173, 0.762);
+    }
+    
+    100% {
+        background-color: rgba(112, 88, 163, 0.515);
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 255, 0.3);
+    animation: changeColor 5s infinite;
+    /* Chạy hiệu ứng trong vòng 5 giây và lặp lại vô hạn */
+
+}
+.Main .column{
+    display: flex;
+    column-gap: 15px;
+}
+
+.container {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 20px;
+    justify-items: center;
+}
+
+
+
+.container .form {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.personal-info,
+.work-info {
+    flex-basis: calc(50% - 12.5px);
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.container .Intro {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    grid-column: span 2;
+}
+
+.container .form {
+    margin-top: 30px;
+}
+
+.form .input-box {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box .label {
+    color: #333;
+}
+
+.form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.form .column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.form .gender-box {
+    margin-top: 20px;
+}
+
+.gender-box h3 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+
+.form .gender {
+    column-gap: 5px;
+}
+
+.gender input {
+    accent-color: rgb(130, 106, 251);
+}
+
+.form :where(.gender input, .gender label) {
+    cursor: pointer;
+}
+
+.gender label {
+    color: #707070;
+}
+
+.selection {
+    height: 50px;
+    width: 100%;
+    outline: none;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    color: #707070;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+
+.XacNhan {
+    grid-column: span 2;
+    /* Xác nhận chiếm cả hai cột */
+    text-align: center;
+}
+
+.XacNhan button {
+    height: 55px;
+    width: 150px;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    background-color: rgb(130, 106, 251);
+}
+
+.XacNhan button:hover {
+    background-color: rgb(88, 56, 250);
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .form .column {
+        flex-wrap: wrap;
+    }
+
+    .form :where(.gender-option, .gender) {
+        row-gap: 15px;
+    }
+}
