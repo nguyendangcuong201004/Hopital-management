@@ -16,7 +16,7 @@ module.exports.index= async(req, res) => {
     if(type){
         if(type=="op1"){
             console.log("cccccccccc")
-            medicine= await Medicine.find(find).sort({name:-1});
+            medicine= await Medicine.find(find).sort({name:1});
             typeName="Sắp xếp theo thứ tự bảng chữ cái"
             console.log(medicine);
         }
