@@ -1,0 +1,83 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Nh&#x1EAD;p th&ocirc;ng tin Benh Nhan; 
+  link(rel='stylesheet' href='/client/css/nhap-nurse.css')
+body
+  section.container
+    .Intro
+      header Nh&#x1EAD;p th&ocirc;ng tin Bệnh Nhân 
+    .Main
+      form.form(
+        action='/management-customer/create'
+        method="POST"
+        form-create-customer
+        )
+        .personal-info
+          h2 Th&ocirc;ng tin c&aacute; nh&acirc;n
+          .input-box
+            label(for="fullName") Họ Và Tên 
+            input(
+              type='text' 
+              placeholder='Nguyễn Văn A' 
+              id="fullName"
+              name="fullName"
+              required
+              )
+          .gender-box
+            h3 Giới tính
+            .gender-option
+              .gender
+                input(
+                  type='radio' 
+                  name='sex' 
+                  id="sex"
+                  value="nam"                )
+                label(for='sex') Nam
+              .gender
+                input(
+                  type='radio' 
+                  name='sex'
+                  id="sex"
+                  value="nu"
+                  )
+                label(for='sex') N&#x1EEF;
+          .input-box
+            label(for="phone")  SDT
+            input(type='text' placeholder='' id="phone" name="phone")   
+          .input-box
+            label(for="email")  Email
+            input(type='text' placeholder='' id="email" name="email")        
+          .input-box
+            label(for="cccd") CCCD 
+            input(type='text' placeholder='------------' id="cccd" name="cccd")
+          .input-box
+            label(for="ngay-cap")  Ng&agrave;y c&#x1EA5;p
+            input(type='date' placeholder='dd/mm/yy' id="ngay-cap" name="ngaycap")
+          .input-box
+            label(for="ngay-sinh")  Ng&agrave;y sinh
+            input(type='date' placeholder='...' id="ngay-sinh" name="ngaysinh")
+          .input-box
+            label(for="diaChiNha")  &Dstrok;&#x1ECB;a ch&#x1EC9; th&#x1B0;&#x1EDD;ng tr&uacute;
+            input(type='text' placeholder='Vinh, Nghệ An' id="dia-chi" name="diaChiNha")
+          // Thêm mục load ảnh căn cước công dân
+          .input-box
+            label(for="macBenh")  Mắc bệnh
+            input(type='text' placeholder='' id="macBenh" name="macBenh")
+          .input-box
+            label &#x1EA2;nh c&abreve;n c&#x1B0;&#x1EDB;c c&ocirc;ng d&acirc;n
+            input(type='file' accept='image/*')
+          // Thêm mục load ảnh chân dung
+          .input-box
+            label &#x1EA2;nh ch&acirc;n dung
+            input(type='file' accept='image/*')
+        
+        .XacNhan
+          button(
+            type="submit"
+          ) XÁC NHẬN
+  script(src="/client/js/nhap-cus.js") 
+
+    
