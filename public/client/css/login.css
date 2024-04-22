@@ -2,33 +2,36 @@
     margin: 0;
     box-sizing: border-box;
     padding: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Open Sans", sans-serif;
 
 }
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
-    background-color: seagreen;
-    background-image: url(../images/thumb-1920-911207.jpg);
-    background-position: left;
-
+    min-height: 100vh;
+    background-color: rgb(107, 105, 223);
+    background-image: url(../images/background_login.png);
+    background-position: center;
+    background-size: cover; /* Hiển thị ảnh với kích thước 100% của nền */
+    background-repeat: no-repeat; /* Ngăn lặp lại hình nền */
 }
+
 .wrapper {
     width: 500px;
     background-color: white;
     color: black;
     padding-left: 2rem;
-    margin-top: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     padding-top: 5rem;
-    padding-bottom: 8rem;
+    padding-bottom: 5rem;
     padding-right: 2rem;
     background: transparent;
     backdrop-filter: blur(100px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-
+    box-shadow: 0 0 10px rgba(116, 3, 3, 0.1);
 }
+
 h1 {
     font-size: 36px;
     text-align: center;
