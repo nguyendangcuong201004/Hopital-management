@@ -10,7 +10,9 @@ const CustomerSchema = new mongoose.Schema({
     diaChiNha: String,
     macBenh: String,
     id: String,
-    anhnhanvien: String
+    anhnhanvien: String,
+    tien_su_benh: String,
+    BHYT: String
 });
 
 const Customer = mongoose.model('Customer', CustomerSchema, "customer");

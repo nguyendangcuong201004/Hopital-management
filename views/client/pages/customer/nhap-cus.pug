@@ -73,7 +73,58 @@ body
           .input-box
             label &#x1EA2;nh ch&acirc;n dung
             input(type='file' accept='image/*')
-        
+        .work-info
+          h2 Thông tin khám bệnh
+          .input-box
+              label Tiền sử bệnh
+              input(
+                required="" 
+                placeholder="Bệnh tim, v..v.." 
+                type="text"
+                name="tien_su_benh"
+                )
+          .input-box
+              label Vấn đề sức khỏe hiện tại.
+              input(
+                required="" 
+                placeholder="---------" 
+                type="text"
+                )
+          .input-box
+              label Mã bảo hiểm y tế.
+              input(
+                required="" 
+                placeholder="---------" 
+                type="text"
+                name="BHYT"
+                )
+          .input-box
+              label Ngày khám
+              input(
+                placeholder="Ngày khám" 
+                type="date"
+                )
+          .input-box
+              label Thuốc đã/đang sử dụng
+              input(
+                placeholder="Nhập tên thuốc" 
+                type="text"
+                )
+          .column
+            .input-box
+              label Liều lượng
+              input(
+                required="" 
+                placeholder="Nhập liều lượng" 
+                type="text"
+                )
+            .input-box
+              label Tần suất sử dụng
+              input(
+                required="" 
+                placeholder="Nhập tần suất" 
+                type="text"
+                )
         .XacNhan
           button(
             type="submit"
