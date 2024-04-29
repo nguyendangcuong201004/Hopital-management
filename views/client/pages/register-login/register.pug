@@ -35,12 +35,19 @@ html(lang="en")
         .input-login
           i.bx.bx-lock-alt
           input#input-login(
+            placeholder="Email" 
+            name="email" 
+            type="email"
+            )
+        .input-login
+          i.bx.bx-lock-alt
+          input#input-login(
             placeholder="Password" 
             name="password" 
             type="password"
             )
         .remember-forget
-          a(href="") Quên mật khẩu
+          a(href="/forgotPasswordRequest") Quên mật khẩu
         button.btn(type="submit")
           i.bx.bx-right-arrow-alt
         .register

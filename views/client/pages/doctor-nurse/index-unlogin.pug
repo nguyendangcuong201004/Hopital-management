@@ -22,15 +22,14 @@ header
         a(href='../') Trang chủ
       li
         a(href='#lucluongyta') Danh s&aacute;ch
-      li
-        a(href='../management-customer') Bệnh nhân của tôi
       li &Dstrok;&#x1EB7;t l&#x1ECB;ch
       li Tin t&#x1EE9;c
     ul
-      <box-icon name='user-circle'></box-icon>
+      button.login-button
+        a(href='../login') Đăng nhập
     ul
-      li.userAccount Welcome, #{records2.username}
-      a(href='/doctor-nurse') Đăng xuất
+      button.signin-button
+        a(href='../register') Đăng ký
 .container
   .content
     .info
@@ -71,10 +70,8 @@ header
       br
       |  Y T&Aacute; 
       br
-    button.add-button
-      a(href='/doctor-nurse/create') Th&ecirc;m m&#x1EDB;i
   ul.nurse-info
-    each yta in records1  
+    each yta in records  
       .nurse-name
         li.nurse-more
           .nurse-content
@@ -165,4 +162,3 @@ header
 .cpr
   .cpr-contain
     p &copy;2024 MIMONA *&Dstrok;&atilde; &dstrok;&abreve;ng k&iacute; b&#x1EA3;n quy&#x1EC1;n th&#x1B0;&#x1A1;ng hi&#x1EC7;u.
-script(src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js")

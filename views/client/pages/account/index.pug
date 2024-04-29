@@ -1,0 +1,184 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(
+      content="IE=edge" 
+      http-equiv="X-UA-Compatible"
+      )
+    meta(
+      content="width=device-width, initial-scale=1.0" 
+      name="viewport"
+      )
+    title Sidebar With Bootstrap
+    link(
+      rel="stylesheet" 
+      href="https://cdn.lineicons.com/4.0/lineicons.css"
+      )
+    link(
+      crossorigin="anonymous" 
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      )
+    link(
+      href="/client/css/account.css" 
+      rel="stylesheet"
+      )
+  body
+    .wrapper
+      aside#sidebar
+        .d-flex
+          button.toggle-btn(type="button")
+            i.lni.lni-grid-alt
+          .sidebar-logo
+            a(href="#") Manage
+        ul.sidebar-nav
+          li.sidebar-item
+            a.sidebar-link(href="#")
+              i.lni.lni-user
+              span Profile
+          li.sidebar-item
+            a.sidebar-link(href="#")
+              i.lni.lni-agenda
+              span Task
+          li.sidebar-item
+            a.sidebar-link.collapsed.has-dropdown(
+              aria-controls="auth" 
+              aria-expanded="false" 
+              data-bs-target="#auth" 
+              data-bs-toggle="collapse" 
+              href="#"
+              )
+              i.lni.lni-protection
+              span Auth
+            ul#auth.sidebar-dropdown.list-unstyled.collapse(data-bs-parent="#sidebar")
+              li.sidebar-item
+                a.sidebar-link(href="#") Login
+              li.sidebar-item
+                a.sidebar-link(href="#") Register
+          li.sidebar-item
+            a.sidebar-link.collapsed.has-dropdown(
+              aria-controls="multi" 
+              aria-expanded="false" 
+              data-bs-target="#multi" 
+              data-bs-toggle="collapse" 
+              href="#"
+              )
+              i.lni.lni-layout
+              span Multi Level
+            ul#multi.sidebar-dropdown.list-unstyled.collapse(data-bs-parent="#sidebar")
+              li.sidebar-item
+                a.sidebar-link.collapsed(
+                  aria-controls="multi-two" 
+                  aria-expanded="false" 
+                  data-bs-target="#multi-two" 
+                  data-bs-toggle="collapse" 
+                  href="#"
+                  ) Two Links
+                ul#multi-two.sidebar-dropdown.list-unstyled.collapse
+                  li.sidebar-item
+                    a.sidebar-link(href="#") Link 1
+                  li.sidebar-item
+                    a.sidebar-link(href="#") Link 2
+          li.sidebar-item
+            a.sidebar-link(href="#")
+              i.lni.lni-popup
+              span Notification
+          li.sidebar-item
+            a.sidebar-link(href="#")
+              i.lni.lni-cog
+              span Setting
+        .sidebar-footer
+          a.sidebar-link(href="#")
+            i.lni.lni-exit
+            span Logout
+      .main
+        nav.navbar.navbar-expand.px-4.py-3
+          form.d-none.d-sm-inline-block(action="#")
+          .navbar-collapse.collapse
+            ul.navbar-nav.ms-auto
+              li.nav-item.dropdown
+                a.nav-icon.pe-md-0(
+                  data-bs-toggle="dropdown" 
+                  href="#"
+                  )
+                  img.avatar.img-fluid(
+                    alt="" 
+                    src="/account.png"
+                    )
+                .dropdown-menu.dropdown-menu-end.rounded
+        main.content.px-3.py-4
+          .container-fluid
+            .mb-3
+              h3.fw-bold.fs-4.mb-3 Admin Dashboard
+              .row
+                .col-12.col-md-4
+                  .card.border-0
+                    .card-body.py-4
+                      h5.mb-2.fw-bold Memebers Progress
+                      p.mb-2.fw-bold $72,540
+                      .mb-0
+                        span.badge.text-success.me-2 +9.0%
+                        span.fw-bold Since Last Month
+                .col-12.col-md-4
+                  .card.border-0
+                    .card-body.py-4
+                      h5.mb-2.fw-bold Memebers Progress
+                      p.mb-2.fw-bold $72,540
+                      .mb-0
+                        span.badge.text-success.me-2 +9.0%
+                        span.fw-bold Since Last Month
+                .col-12.col-md-4
+                  .card.border-0
+                    .card-body.py-4
+                      h5.mb-2.fw-bold Memebers Progress
+                      p.mb-2.fw-bold $72,540
+                      .mb-0
+                        span.badge.text-success.me-2 +9.0%
+                        span.fw-bold Since Last Month
+              h3.fw-bold.fs-4.my-3 Avg. Agent Earnings
+              .row
+                .col-12
+                  table.table.table-striped
+                    thead
+                      tr.highlight
+                        th(scope="col") #
+                        th(scope="col") First
+                        th(scope="col") Last
+                        th(scope="col") Handle
+                    tbody
+                      tr
+                        th(scope="row") 1
+                        td Mark
+                        td Otto
+                        td @mdo
+                      tr
+                        th(scope="row") 2
+                        td Jacob
+                        td Thornton
+                        td @fat
+                      tr
+                        th(scope="row") 3
+                        td(colspan="2") Larry the Bird
+                        td @twitter
+        footer.footer
+          .container-fluid
+            .row.text-body-secondary
+              .col-6.text-start
+                a.text-body-secondary(href=" #")
+                  strong CodzSwod
+              .col-6.text-end.text-body-secondary.d-none.d-md-block
+                ul.list-inline.mb-0
+                  li.list-inline-item
+                    a.text-body-secondary(href="#") Contact
+                  li.list-inline-item
+                    a.text-body-secondary(href="#") About Us
+                  li.list-inline-item
+                    a.text-body-secondary(href="#") Terms & Conditions
+    script(
+      crossorigin="anonymous" 
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      )
+    script(src="account.js")

@@ -2,6 +2,11 @@
 const DoctorNurse = require("../../models/doctor-nurse.model.js");
 const userCollection = require("../../models/account.js");
 const bcrypt = require('bcrypt');
+const listAccount = require("../../models/account.js");
+
+const crypto = require('crypto');
+
+const sendEmail = require("../../helpers/email.js");
 
 //[GET] 
 module.exports.index = (req, res) => {
@@ -17,18 +22,27 @@ module.exports.managementCustomer = (req, res) => {
 }
 
 // [GET] /doctor-nurse
-module.exports.doctorNurse = async (req, res) => {
+// module.exports.doctorNurse = async (req, res) => {
 
-    const records = await DoctorNurse.find();
+//     const records = await DoctorNurse.find();
   
-    res.render("client/pages/doctor-nurse/index.pug", {
-        records: records
-    });
-}
+//     res.render("client/pages/doctor-nurse/index.pug", {
+//         records: records
+//     });
+// }
 
 // [GET] /doctor-nurse/create
 module.exports.doctorNurseCreate = (req, res) => {
     res.render("client/pages/doctor-nurse/nhap-nurse.pug");
+}
+
+module.exports.doctorNurseUnlogin =  async (req, res) => {
+
+    const records = await DoctorNurse.find();
+    res.render("client/pages/doctor-nurse/index-unlogin.pug", {
+        records: records
+    });
+
 }
 
 // [POST] /doctor-nurse/create
@@ -40,6 +54,26 @@ module.exports.doctorNurseCreatePost = async (req, res) => {
     res.redirect("back")
 }
 
+// [GET] /accounts admin
+
+module.exports.accountAdminAccounts = async (req, res) => {
+ 
+    let find = {
+        deleted: false,
+    };
+    const records = await listAccount.find(find);
+
+    res.render("client/pages/account/index.pug", {
+        records: records
+    });
+
+}
+
+// [GET] /login admin
+
+module.exports.accountLoginAdmin= (req, res) => {
+    res.render("client/pages/register-login/admin-login.pug");
+}
 // [GET] /login
 module.exports.accountLogin= (req, res) => {
     res.render("client/pages/register-login/login.pug");
@@ -51,7 +85,8 @@ module.exports.userAccountPost = async (req, res) => {
     const saltRounds = 10;
     const existingUser = await userCollection.findOne({username: req.body.username});
     if (existingUser) {
-        res.send("Tài khoản đã tồn tại");
+        req.flash("error", `Tài khoản hoặc mật khẩu không tồn tại`);
+        res.redirect("back");
     }
     else {
         const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
@@ -69,15 +104,23 @@ module.exports.userAccountLoginPost = async (req, res) => {
     // salt Rounds
     const findUsername = await userCollection.findOne({username: req.body.username});
     if (!findUsername) {
-        res.send("Sai mat khau");
+        req.flash('message', 'Tài khoản đã tồn tại');
+        res.redirect("back");
+
     }
     else {
         const isPasswordMatch = await bcrypt.compare(req.body.password, findUsername.password);
         if (isPasswordMatch) {
-            res.redirect("doctor-nurse");
+            const records = await DoctorNurse.find();
+  
+            res.render("client/pages/doctor-nurse/index.pug", {
+                records1: records,
+                records2: findUsername
+            });
         }
         else {
-            res.send("Tài khoản hoặc mật khẩu không đúng");
+            req.flash('/login', "Tài khoản hoặc mật khẩu không tồn tại");
+            res.redirect("back");
         }
     }
 
@@ -87,3 +130,66 @@ module.exports.userAccountLoginPost = async (req, res) => {
 module.exports.accountRegister= (req, res) => {
     res.render("client/pages/register-login/register.pug");
 }
+//[GET] FORGET PASSWORD
+
+
+module.exports.forgotPasswordRender= (req, res) => {
+    res.render("client/pages/register-login/forgotPassword.pug");
+}
+
+module.exports.forgotPassword = async (req, res, next) => {
+    const user = await userCollection.findOne({email: req.body.email});
+    if (!user) {
+
+    }
+    const resetToken = user.createPasswordToken();
+    await user.save({validateBeforeSave: false});
+
+
+    const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
+    const message = `Bạn đã yêu cầu thay đổi MK. Bấm link ở dưới để đổi MK\n\n${resetURL}`;
+
+    try {
+        await sendEmail( {
+            email: user.email,
+            subject: 'Password change request received',
+            message: message
+        });
+
+        res.status(200).json({
+            status: 'success',
+            message: 'password reset link send to the user email'
+        })
+    }catch(err) {
+        user.passwordResetToken = undefined;
+        user.passwordResetTokenExpires = undefined;
+        user.save({validateBeforeSave: false});
+    }
+
+
+
+}
+
+module.exports.resetPassword= async (req, res, next) => {
+    res.render("client/pages/register-login/resetPassword.pug");
+    const token = crypto.createHash('sha256').update(req.params.token).digest('hex');
+    await userCollection.findOne({passwordResetToken: token, passwordResetTokenExpires: {$gt: Date.now()}})
+
+    if (!user) {
+
+    }
+    user.password = req.body.password();
+    user.passwordResetToken = undefined;
+    user.passwordResetTokenExpires = undefined;
+
+    user.save();
+
+    const loginToken  = signToken(user._id);
+    res.status(200).json({
+        status: 'success',
+        token: loginToken
+    });
+}
+
+
+
