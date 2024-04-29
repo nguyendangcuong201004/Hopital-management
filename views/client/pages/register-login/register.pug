@@ -20,6 +20,14 @@ html(lang="en")
       href="" 
       rel="stylesheet"
       )
+
+  div.col-10.ml-sm-auto.px-4
+    if successes
+      for success in successes
+        div.alert.alert-success #{ success }
+    if errors
+      for error, i in errors
+        div.alert.alert-danger #{ error }
     .wrapper
       form(action="/register" method="POST")
         h1 Đăng ký

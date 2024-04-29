@@ -16,6 +16,13 @@ html(lang="en")
       )
     title Login
   body
+  div.col-10.ml-sm-auto.px-4
+    if successes
+      for success in successes
+        div.alert.alert-success(role="alert") #{ success }
+    if errors
+      for error, i in errors
+        div.alert.alert-danger(role="alert") #{ error }
     link(
       href="" 
       rel="stylesheet"
@@ -49,6 +56,5 @@ html(lang="en")
           i.bx.bx-right-arrow-alt
         .register
           a(href="/register") Tạo tài khoản
-        .message
 
 

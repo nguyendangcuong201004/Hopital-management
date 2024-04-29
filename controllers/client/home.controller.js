@@ -76,7 +76,7 @@ module.exports.accountLoginAdmin= (req, res) => {
 }
 // [GET] /login
 module.exports.accountLogin= (req, res) => {
-    res.render("client/pages/register-login/login.pug");
+        res.render("client/pages/register-login/login.pug", {messages:req.flash()});
 }
 // [POST] /register
 
@@ -85,7 +85,7 @@ module.exports.userAccountPost = async (req, res) => {
     const saltRounds = 10;
     const existingUser = await userCollection.findOne({username: req.body.username});
     if (existingUser) {
-        req.flash("error", `Tài khoản hoặc mật khẩu không tồn tại`);
+        req.flash("error", `Tài khoản đã tồn tại`);
         res.redirect("back");
     }
     else {
@@ -94,6 +94,7 @@ module.exports.userAccountPost = async (req, res) => {
         req.body.password = hashedPassword;
         const newRecord = new userCollection(req.body);
         await newRecord.save();
+        req.flash("success", `Đăng ký thành công`);
         res.redirect("back");
     }
 }
@@ -104,7 +105,7 @@ module.exports.userAccountLoginPost = async (req, res) => {
     // salt Rounds
     const findUsername = await userCollection.findOne({username: req.body.username});
     if (!findUsername) {
-        req.flash('message', 'Tài khoản đã tồn tại');
+        req.flash("error", "Tài khoản hoặc mật khẩu không đúng");
         res.redirect("back");
 
     }
@@ -119,7 +120,7 @@ module.exports.userAccountLoginPost = async (req, res) => {
             });
         }
         else {
-            req.flash('/login', "Tài khoản hoặc mật khẩu không tồn tại");
+            req.flash("error", "Tài khoản hoặc mật khẩu không đúng");
             res.redirect("back");
         }
     }
@@ -128,7 +129,7 @@ module.exports.userAccountLoginPost = async (req, res) => {
 
 // [GET] /register
 module.exports.accountRegister= (req, res) => {
-    res.render("client/pages/register-login/register.pug");
+    res.render("client/pages/register-login/register.pug")
 }
 //[GET] FORGET PASSWORD
 
@@ -146,7 +147,7 @@ module.exports.forgotPassword = async (req, res, next) => {
     await user.save({validateBeforeSave: false});
 
 
-    const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
+    const resetURL = `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`;
     const message = `Bạn đã yêu cầu thay đổi MK. Bấm link ở dưới để đổi MK\n\n${resetURL}`;
 
     try {
@@ -173,22 +174,19 @@ module.exports.forgotPassword = async (req, res, next) => {
 module.exports.resetPassword= async (req, res, next) => {
     res.render("client/pages/register-login/resetPassword.pug");
     const token = crypto.createHash('sha256').update(req.params.token).digest('hex');
-    await userCollection.findOne({passwordResetToken: token, passwordResetTokenExpires: {$gt: Date.now()}})
+    const user =  await userCollection.findOne({passwordResetToken: token, passwordResetTokenExpires: {$gt: Date.now()}})
 
     if (!user) {
 
     }
-    user.password = req.body.password();
-    user.passwordResetToken = undefined;
-    user.passwordResetTokenExpires = undefined;
+    else {
+        user.password = req.body.password;
+        user.passwordResetToken = undefined;
+        user.passwordResetTokenExpires = undefined;
+    
+        user.save();
+    }
 
-    user.save();
-
-    const loginToken  = signToken(user._id);
-    res.status(200).json({
-        status: 'success',
-        token: loginToken
-    });
 }
 
 

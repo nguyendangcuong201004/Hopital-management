@@ -4,6 +4,7 @@ const customerController = require('../../controllers/client/customer.controller
 const controller = require("../../controllers/client/home.controller.js");
 const adminAccount = require("../../controllers/admin/account.controller.js");
 
+
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
@@ -49,17 +50,11 @@ router.patch('/manage-medicine/add-medicine/add-all-products', manageMedicineCon
 
 router.delete('/manage-medicine/delete-product/:id', manageMedicineControllers.deleteProduct);
 
-<<<<<<< Updated upstream
-router.get('/manage-medicine/edit/:id', manageMedicineControllers.editProduct);
-
-router.patch('/manage-medicine/edit/:id', manageMedicineControllers.editProductPost);
-=======
 router.get('/forgotPasswordRequest', controller.forgotPasswordRender);
 router.post('/forgotPassword', controller.forgotPassword);
-router.post('/resetPassword', controller.resetPassword);    
+router.get('/resetPassword/:token', controller.resetPassword);
 router.patch('/resetPassword/:token', controller.resetPassword);
 
->>>>>>> Stashed changes
 
 
 module.exports = router;

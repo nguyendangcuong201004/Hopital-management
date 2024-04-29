@@ -26,6 +26,12 @@ app.use(cookieParser('NDCNDTN'));
 app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 
+app.use((req, res, next) => {
+    res.locals.errors = req.flash("error");
+    res.locals.successes = req.flash("success");
+    next();
+  });
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 database.connect();
