@@ -1,0 +1,106 @@
+doctype html 
+head 
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Thuốc | Bệnh viện Đa khoa MINONA
+    link(rel="stylesheet", href="client/css/medicine-info-final.css")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,700;1,700&family=Montserrat:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap", rel="stylesheet")
+body 
+    header
+        nav
+            div(class="logo")
+                img(src="client/images/nursewebsitelogo.png", alt="")
+                h3 BỆNH VIỆN 
+                    br
+                    | ĐA KHOA MIMONA
+            ul(class="sub-nav")
+                li Giới thiệu 
+                li
+                    a(href="#lucluongyta") Danh sách
+                li Chi phí khám 
+                li Đặt lịch 
+                li Tin tức
+            ul 
+                button.login-button
+                    a(href="login.html") Đăng nhập
+            ul
+                button.signin-button
+                    a(href="login.html") Đăng ký
+    .container
+        .content
+            .info
+                .info-content
+                    h1.DNYT Kho thuốc
+                    p
+                        | Danh sách thuốc phong phú tại Kho thuốc của bệnh viện, bao gồm cả thuốc tổng hợp và chi tiết cho
+                        | mọi tình huống y tế, đảm bảo sự đa dạng và chất lượng trong chăm sóc sức khỏe.
+                .buttons
+                    button Tra cứu
+                    button Chi tiết
+    div(class="container1")
+        div(class="thanh_tim_kiem") 
+            form( id="type-form")
+                select(name="typeofdisplay", id="typeofdisplay")
+                    option(value="") Tìm kiếm theo
+                    option(value="op1") Sắp xếp theo thứ tự bảng chữ cái 
+                    option(value="op2") Sắp xếp theo hạn sử dụng
+                button(type="submit", id="submit-button") Xác nhận 
+        div(class="search")
+            form(action="",method='get',id="search-form")
+                input(type="text", name="medicineSearch",id="medicineSearch",placeholder="Tìm kiếm",value=medicineSearch)
+                button(type="submit", id="search-button",class="KinhLup-button") 
+                    img(src="client/images/search-button-svg.svg")
+        section(class="table")
+            h2 Danh sách thuốc và trang thiết bị
+            p(class="chuthich") *Những dòng màu đỏ là những sản phẩm đã hết hạn sử dụng
+            div(class="table-wrapper")
+                table(class="content-table",id="myTable")
+                    thead   
+                        tr 
+                            th STT           
+                            th Tên           
+                            th Slg           
+                            th Dvi           
+                            th Ngày nhập
+                            th HSD 
+                            th Ngày xuất kho 
+                            th 
+                            th
+                    -var i=0       
+                    each item in medicine 
+                        tr(class=(item.expiredComp<currentDate)?"hethan":"")  
+                            td #{++i}
+                            td #{item.name}
+                            td #{item.quantity}                               
+                            td #{item.unit}                               
+                            td #{item.arriveDate}                               
+                            td #{item.expireDate} 
+                            td -
+                            td 
+                                button(
+                                    button-delete 
+                                    dataId=item.id 
+                                )
+                                    img(src="client/images/bx-trash.svg")
+                            td 
+                                a(
+                                    button-edit 
+                                    dataId=item.id
+                                    href= `/manage-medicine/edit/${item.id}` 
+                                )
+                                    img(src="client/images/bx-edit-alt.svg")      
+        a( class="Add-button",
+            href= "/manage-medicine/add-medicine"
+        )  +Thêm mới               
+    form(
+        action="",
+        method="POST",
+        id="form-delete-addMedicine"
+        data-path='/manage-medicine/delete-product'
+    )       
+    script(src="client/js/search.js") 
+    script(src="client/js/filter.js") 
+    script(src="client/js/deleteAddMedicine.js")

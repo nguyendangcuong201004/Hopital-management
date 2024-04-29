@@ -40,6 +40,9 @@ router.patch('/manage-medicine/add-medicine/add-all-products', manageMedicineCon
 
 router.delete('/manage-medicine/delete-product/:id', manageMedicineControllers.deleteProduct);
 
+router.get('/manage-medicine/edit/:id', manageMedicineControllers.editProduct);
+
+router.patch('/manage-medicine/edit/:id', manageMedicineControllers.editProductPost);
 
 
 module.exports = router;

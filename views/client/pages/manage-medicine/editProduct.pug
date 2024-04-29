@@ -1,0 +1,39 @@
+doctype html 
+head 
+title Sua-san-pham
+link(rel="stylesheet", href="/client/css/nhap-thuoc.css")
+body    
+section(class="title")
+    div(class="top")
+        div
+            img(src="/client/images/Hội_Chữ_thập_đỏ_Việt_Nam.svg.png", alt="")
+        div 
+            h1 Chỉnh sửa sản phẩm 
+section(class="form")
+    - var isRequired = true;
+    form(action=`/manage-medicine/edit/${medicine.id}?_method=PATCH`, method='post', id="medicine-form", required=isRequired)
+        div(class='firstline')
+            div 
+                label(for='medicineName') Tên thuốc/ thiết bị y tế
+                input(type='text', name="medicineName", id='medicineName',value=medicine.name,placeholder='thuoc tri', required=isRequired) 
+            div 
+                label(for='medicineQuantity', id='cc') Số lượng
+                input(type='number', name="medicineQuantity", id='medicineQuantity',value=medicine.quantity,placeholder='666', required=isRequired) 
+            div 
+                label(for='medicineUnit', id="cc") Đơn vị
+                select(name="medicineUnit", id='medicineUnit', required=isRequired)
+                    option(value="") đơn vị
+                    option(value="Thùng",selected=(medicine.unit=="Thùng")?true:false) Thùng
+                    option(value="Hộp",selected=(medicine.unit=="Hộp")?true:false) Hộp
+                    option(value="Máy",selected=(medicine.unit=="Máy")?true:false) Máy
+                    option(value="Bịch",selected=(medicine.unit=="Bịch")?true:false) Bịch
+        div(id='line')
+            label(for='dateArrive') Ngày nhập kho 
+            input(type='date',name='dateArrive',id='dateArrive',value=arriveDate, required=isRequired)
+        div(id='line')
+            label(for='expiredDate') Hạn sử dụng 
+            input(type='date',name='expiredDate',id='expiredDate',value=expireDate, required=isRequired)
+    button(form="medicine-form") Cập nhật 
+                        
+script(src="/client/js/deleteAddMedicine.js")
+script(src="/client/js/addAllMedicine.js")
