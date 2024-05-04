@@ -1,0 +1,745 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Open Sans", sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+.DNYT {
+    font-family: "DM Serif Display", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.col-2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+
+header nav {
+    align-items: center;
+    display: grid;
+    width: 90%;
+    margin: auto auto;
+    gap: 10px;
+    grid-template-columns: auto 1fr auto auto;
+    height: 8rem;
+}
+
+header nav .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+header nav .logo:hover {
+    cursor: pointer;
+}
+
+header nav .logo img {
+    height: 9rem;
+}
+
+header nav .sub-nav {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 1rem;
+    width: 60%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+header nav .sub-nav li:hover {
+    cursor: pointer;
+    color: #00439c;
+}
+
+header nav .sub-nav .root {
+    display: flex;
+}
+
+header nav .sub-nav .sub-sub-nav {
+    display: none;
+}
+
+header nav .icon {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+}
+
+header nav .sub-nav li {
+    margin-right: 10px;
+}
+
+header nav .sub-nav li a {
+    color: #000;
+    text-decoration: none;
+}
+
+header nav .sub-nav li a:hover {
+    color: #00439c;
+}
+
+header nav .icon li:not(li.active) {
+    background-color: #0937ec;
+    border-radius: 30px;
+    padding: 1px 3px;
+}
+
+header nav .icon li.active {
+    border: solid 2px #000;
+    border-radius: 30px;
+    padding: 0px 3px;
+}
+
+header nav .icon li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav .icon li.active a {
+    color: #000;
+}
+
+.login-button a {
+    position: absolute;
+    margin-right: 120px;
+    top: 10px;
+    right: 10px;
+    padding: 8px 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 2.75rem;
+}
+
+.login-button:hover a {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.signin-button a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 25px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 2.75rem;
+}
+
+.signin-button:hover a {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    position: relative;
+    height: 550px;
+    width: 100%;
+    background-image: url(../images/patients_background1.png);
+    background-position: auto center;
+    background-size: cover;
+    border-radius: 0px;
+}
+
+.container .info {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    right: 5%;
+    transform: translate(0, -50%);
+    max-width: 600px;
+}
+
+.container .content .info-content {
+    color: #fff;
+}
+
+.container .content .info-content h1 {
+    font-size: 4.5rem;
+}
+
+.container .content .info-content p {
+    margin-top: 50px;
+}
+
+.container .info .buttons {
+
+    margin-top: 10px;
+}
+
+.container .info .buttons button {
+    padding: 10px;
+    margin: 5px;
+    margin-left: 0;
+    border-radius: 15px;
+    border: none;
+}
+
+.container .info .buttons button:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+
+}
+
+.container .info .buttons button:first-child:hover {
+    cursor: pointer;
+    background-color: #0937ec;
+    color: #fff;
+}
+
+.container .table {
+    position: absolute;
+    color: #101643;
+    bottom: -10%;
+    background-color: #fff;
+    min-width: 200px;
+    width: 850px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    height: 130px;
+    box-shadow: 5px 10px 30px #999;
+}
+
+.container .table .table-justify {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.container .table-justify .title-content {
+    border-bottom: solid 1px #101643;
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px;
+}
+
+.container .table-justify .table-content {
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container .table .title-content>h2 {
+    margin: 0 auto;
+}
+
+
+.container .table-justify .sub-content {
+    margin-left: 15px;
+}
+
+.container .table-justify .sub-content div:first-child {
+    border-right: solid 1px #101643;
+    width: 90%;
+}
+
+.nurse-list {
+    position: relative;
+    height: 630px;
+    margin-top: 100px;
+    background-image: url(../images/patients_background2.png);
+    background-position: center center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.nurse-info {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    order: 1;
+    overflow-y: auto;
+    /* Thêm thanh cuộn dọc khi nội dung vượt quá kích thước */
+    max-height: 630px;
+    /* Đặt chiều cao tối đa */
+}
+
+.nurse-list .title {
+    color: rgb(131, 187, 232);
+    text-align: right;
+    position: sticky;
+    margin-right: 40px;
+    margin-top: 50px;
+    z-index: 1;
+    background-color: transparent;
+    font-weight: 900;
+    font-size: 4rem;
+    text-transform: uppercase;
+    order: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Đổ bóng và làm nổi chữ */
+}
+
+
+.nurse-list .nurse-name {
+    position: relative;
+    top: 35px;
+    left: 10%;
+    width: 50%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.nurse-list .nurse-name .nurse-more {
+    margin: 15px;
+    border-radius: 10px;
+    transition: ease 0.3s;
+}
+
+.nurse-list .nurse-name .nurse-more:hover {
+    cursor: pointer;
+    scale: 1.04;
+    box-shadow: #000 5px 10px 30px;
+}
+
+.nurse-list .nurse-name .nurse-more:nth-child(1) {
+    background-image: url(images/yta1.png);
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+    background-position: right;
+}
+
+.nurse-list .nurse-name .nurse-more:nth-child(2) {
+    background-image: url(images/yta2.png);
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+    background-position: left;
+}
+
+.nurse-list .nurse-name .nurse-more:nth-child(3) {
+    background-image: url(images/yta3.png);
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+    background-position: left;
+}
+
+.nurse-list .nurse-name .nurse-more:nth-child(4) {
+    background-image: url(images/yta4.png);
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+    background-position: right;
+}
+
+.nurse-list .nurse-name .nurse-content {
+    position: relative;
+    top: 180px;
+    background-color: #101643;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.nurse-list .nurse-name .nurse-content>* {
+    margin-left: 10px;
+}
+
+.nurse-list .nurse-name .nurse-content .star {
+    color: #ffce38;
+}
+
+.nurse-list .nurse-name .nurse-content .what {
+    margin-left: 10px;
+    color: #a7a7a7;
+    font-size: 0.6rem;
+    top: 3%;
+    bottom: 3%;
+}
+
+.nurse-list .nurse-name .nurse-content .what i {
+    margin-right: 5px;
+    color: #fdf695;
+    font-size: 0.7rem;
+    font-style: normal;
+}
+
+.nurse-list .title span {
+    color: #ffffff;
+}
+
+
+.add-button {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 30px;
+    right: 10px;
+    z-index: 1;
+}
+
+.add-button a {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.add-button a:hover {
+    background-color: #0056b3;
+}
+
+
+.contact {
+    background-color: #f5f7fa;
+    height: 400px;
+}
+
+.contact .contact-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.contact .contact-title h1 {
+    margin-top: 70px;
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.contact .contact-icon {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact .contact-icon div {
+    z-index: 10;
+    height: 120px;
+    width: 120px;
+    background-position: center center;
+    background-size: cover;
+    transition: ease 0.3s;
+}
+
+.contact .contact-icon div:hover {
+    scale: 1.02;
+    cursor: pointer;
+}
+
+.cpr {
+    height: 130px;
+}
+
+.cpr .cpr-contain {
+    position: relative;
+    top: 50%;
+    left: 7%;
+    transform: translate(-7.5%, -50%);
+    left: 15%;
+
+}
+
+.cpr .cpr-contain p {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+
+/* BEGIN LOOP SLIDER */
+.loop-slider {
+    height: 1000px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.loop-slider .background-img {
+    height: 700px;
+    width: 100%;
+    background-image: url(../images/background_yta3.png);
+    background-position: center center;
+    background-size: cover;
+    background-color: rgba(255, 0, 255, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+
+    position: absolute;
+    opacity: 50%;
+}
+
+.loop-slider .background {
+    /* position: absolute; */
+    height: 1000px;
+    position: relative;
+}
+
+/* BEGIN: TITLE */
+.loop-slider .title {
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 50px;
+    z-index: 1;
+    background-color: transparent;
+    font-weight: 900;
+    font-size: 4rem;
+    text-transform: uppercase;
+    order: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Đổ bóng và làm nổi chữ */
+}
+
+.loop-slider .title span {
+    color: #405a4a;
+}
+
+.loop-slider .title p {
+    font-size: 1rem;
+    color: #777;
+    margin-left: 40px;
+}
+
+.loop-slider .title img {
+    height: 50px;
+    position: relative;
+}
+
+/* END: TITLE */
+
+
+/* BEGIN SLIDER */
+.loop-slider .slider {
+    position: relative;
+    top: 20%;
+    left: 15%;
+    transform: translate(0, -50%);
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    gap: 17px;
+    height: 550px;
+    align-items: center;
+    z-index: 10;
+}
+
+.loop-slider .slider div {
+    width: 500px;
+    height: 230px;
+}
+
+.loop-slider .slider div>h2 {
+    display: none;
+}
+
+
+.loop-slider .slider img {
+    display: flex;
+    /* Sử dụng flexbox để căn giữa */
+    height: 220px;
+    /* Đặt chiều cao mong muốn cho ảnh */
+    width: 350px;
+    /* Đặt chiều rộng mong muốn cho ảnh */
+    object-fit: cover;
+    z-index: 50;
+    box-shadow: 0 40px 50px #505050;
+    border-radius: 10px;
+    transition: ease 0.5s;
+}
+
+.loop-slider .slider img:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+
+.loop-slider .slider div:nth-child(2)>*:not(img) {
+    display: block;
+    transform: scale(1.04);
+
+}
+
+.loop-slider .slider div button {
+    display: none;
+}
+
+.loop-slider .slider div p {
+    display: none;
+}
+
+.loop-slider .slider div:nth-child(2)>button {
+    position: relative;
+    left: 45%;
+    transform: translate(-50%, 0);
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 15px;
+    padding-top: 12px;
+    transition: ease 0.1s;
+    align-items: center;
+    margin-top: 30px;
+    z-index: 100;
+}
+
+.loop-slider .slider div:nth-child(2)>button:hover {
+    cursor: pointer;
+    outline: #000 3px solid;
+    outline-offset: 3px;
+    background-color: #000;
+    color: #fff;
+
+}
+
+.loop-slider .slider div:nth-child(2)>h2 {
+    margin-top: 35px;
+    text-align: center;
+    color: #000;
+}
+
+.loop-slider .slider div:nth-child(2)>p {
+    margin-top: px;
+    text-align: center;
+    color: #000;
+}
+
+.loop-slider .slider div:nth-child(2)>* {
+    margin: 10px;
+    scale: 1.07;
+    transform: translateY(-5%);
+    transition: ease 0.3s;
+
+}
+
+.loop-slider .slider div:nth-child(2) img:hover {
+    scale: 1.085;
+    transition: ease 0.2s;
+}
+
+.loop-slider .slider div:nth-child(4)>* {
+    opacity: 0%;
+    display: none;
+}
+
+.loop-slider .slider div:nth-child(5)>* {
+    opacity: 0%;
+    display: none;
+}
+
+.loop-slider .slider div:nth-child(6)>* {
+    opacity: 0%;
+    display: none;
+}
+
+
+/* END SLIDER */
+
+
+/* BEGIN DOTS */
+.slider div.dots {
+    /* background-color: #004599; */
+    position: absolute;
+    width: 90%;
+    height: 120px;
+}
+
+.dots .dots-container {
+    z-index: 10;
+    /* background-color: #1e1f24; */
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    top: 50%;
+    position: absolute;
+
+    transform: translate(0, -60px);
+    list-style: none;
+
+}
+
+.dots .dots-container li {
+    height: 5px;
+    width: 20px;
+    background-color: #a4a4a4;
+    border-radius: 30px;
+}
+
+.dots>.dots-container>li.active3 {
+    background-color: #005ed5;
+}
+
+/* END DOTS */
+/* BEGIN BUTTONS */
+.loop-slider>.background>.buttons3 {
+    position: absolute;
+    top: 30%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    left: 6.5%;
+    z-index: 10;
+}
+
+.background .buttons3>button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0937ec;
+    color: #fff;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    z-index: 12;
+    margin: 2px;
+}
+
+.background .buttons3>button:nth-child(2) {
+    right: 0;
+}
+
+
+.background .buttons3>button:hover {
+    cursor: pointer;
+    background-color: #0b1f42;
+}
+
+/* END BUTTONS */
