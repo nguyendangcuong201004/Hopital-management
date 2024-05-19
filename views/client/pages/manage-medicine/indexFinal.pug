@@ -12,7 +12,8 @@ body
     header
         nav
             div(class="logo")
-                img(src="client/images/nursewebsitelogo.png", alt="")
+                a(href="/") 
+                    img(src="client/images/nursewebsitelogo.png", alt="")
                 h3 BỆNH VIỆN 
                     br
                     | ĐA KHOA MIMONA
@@ -25,10 +26,10 @@ body
                 li Tin tức
             ul 
                 button.login-button
-                    a(href="login.html") Đăng nhập
+                    a(href="/login") Đăng nhập
             ul
                 button.signin-button
-                    a(href="login.html") Đăng ký
+                    a(href="/register") Đăng ký
     .container
         .content
             .info
