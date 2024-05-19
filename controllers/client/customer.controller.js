@@ -34,3 +34,15 @@ module.exports.createCustomerPost = async (req, res) => {
 
     res.redirect("/management-customer");
 };
+
+// DEL
+module.exports.deleteCustomer = (req, res) => {
+    res.render("client/pages/customer/del-cus.pug");
+};
+
+module.exports.deleteCustomerPost = async (req, res) => {
+    const { fullName, phone } = req.body;
+    await Customer.findOneAndDelete({ fullName: fullName, phone: phone });
+    console.log("da vo ham xoa")
+    res.redirect("/management-customer");
+};

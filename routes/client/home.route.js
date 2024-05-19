@@ -13,7 +13,8 @@ router.get("/", controller.index);
 router.get('/management-customer', customerController.managementCustomer);
 router.get('/management-customer/create', customerController.createCustomer);
 router.post('/management-customer/create', customerController.createCustomerPost);
-
+router.get('/management-customer/delete', customerController.deleteCustomer);
+router.post('/management-customer/delete', customerController.deleteCustomerPost);
 module.exports = router;
 
 router.get("/doctor-nurse", controller.doctorNurseUnlogin);
