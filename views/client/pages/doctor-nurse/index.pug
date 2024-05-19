@@ -76,23 +76,24 @@ header
       a(href='/doctor-nurse/create') Th&ecirc;m m&#x1EDB;i
   ul.nurse-info
     each yta in records1  
-      .nurse-name
-        li.nurse-more
-          .nurse-content
-            h3 #{yta.hoten}
-            .star
-              i.material-icons star
-              i.material-icons star
-              i.material-icons star
-              i.material-icons star
-              i.material-icons star
-            .what
-              h3
-                i.material-icons person
-                | #{yta.khoa}
-              h3
-                i.material-icons local_offer
-                | #{yta.capbac}
+      a(href=`/doctor-nurse/edit/${yta.id}`)
+        .nurse-name
+          li.nurse-more
+            .nurse-content
+              h3 #{yta.hoten}
+              .star
+                i.material-icons star
+                i.material-icons star
+                i.material-icons star
+                i.material-icons star
+                i.material-icons star
+              .what
+                h3
+                  i.material-icons person
+                  | #{yta.khoa}
+                h3
+                  i.material-icons local_offer
+                  | #{yta.capbac} 
 .loop-slider
   .background-img
   .background
@@ -167,3 +168,5 @@ header
   .cpr-contain
     p &copy;2024 MIMONA *&Dstrok;&atilde; &dstrok;&abreve;ng k&iacute; b&#x1EA3;n quy&#x1EC1;n th&#x1B0;&#x1A1;ng hi&#x1EC7;u.
 script(src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js")
+script(src="/client/js/edit-nurse.js")
+script(src="/client/js/del-nurse.js")

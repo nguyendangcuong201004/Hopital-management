@@ -1,12 +1,18 @@
 const express = require("express");
+const multer  = require('multer');
 const manageMedicineControllers= require("../../controllers/client/manage-medicine.controllers.js")
 const customerController = require('../../controllers/client/customer.controller.js');
 const controller = require("../../controllers/client/home.controller.js");
 const adminAccount = require("../../controllers/admin/account.controller.js");
 
 
+
+
 const router = express.Router();
 const bcrypt = require('bcrypt');
+
+const uploadCloud = require("../../helpers/uploadCloud.js");
+const upload = multer();
 
 router.get("/", controller.index);
 
@@ -32,7 +38,13 @@ router.get("/admin/accounts", controller.accountAdminAccounts);
 
 router.get("/register", controller.accountRegister);
 
-router.post("/doctor-nurse/create", controller.doctorNurseCreatePost);
+router.post("/doctor-nurse/create",  controller.doctorNurseCreatePost);
+
+router.get("/doctor-nurse/edit/:id",  controller.doctorNurseEdit);
+
+router.patch("/doctor-nurse/edit/:id",  controller.doctorNurseEditPatch);
+
+router.delete("/doctor-nurse/delete/:id",  controller.doctorNurseDelete);
 
 router.post("/register", controller.userAccountPost);
 

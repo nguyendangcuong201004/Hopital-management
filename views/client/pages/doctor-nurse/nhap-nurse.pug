@@ -55,15 +55,17 @@ body
             input(type='date' placeholder='...' id="ngay-sinh" name="ngaysinh")
           .input-box
             label(for="dia-chi")  &Dstrok;&#x1ECB;a ch&#x1EC9; th&#x1B0;&#x1EDD;ng tr&uacute;
-            input(type='text' placeholder='Vinh, Nghệ An' id="dia-chi" name="diachi")
+            input(type='text'  placeholder='Vinh, Nghệ An' id="dia-chi" name="diachi")
           // Thêm mục load ảnh căn cước công dân
           .input-box
             label &#x1EA2;nh c&abreve;n c&#x1B0;&#x1EDB;c c&ocirc;ng d&acirc;n
-            input(type='file' accept='image/*')
+            input(type='file' 
+            accept='image/*' )
           // Thêm mục load ảnh chân dung
           .input-box
             label &#x1EA2;nh ch&acirc;n dung
-            input(type='file' accept='image/*')
+            input(type='file' 
+            accept='image/*')
         .work-info
           h2 Th&ocirc;ng tin l&agrave;m vi&#x1EC7;c
           .input-box
@@ -123,7 +125,8 @@ body
           // Thêm mục load ảnh thẻ nhân viên
           .input-box
             label &#x1EA2;nh th&#x1EBB; nh&acirc;n vi&ecirc;n
-            input(type='file' accept='image/*')
+            input(type='file' 
+            accept='image/*')
         .XacNhan
           button(
             type="submit"

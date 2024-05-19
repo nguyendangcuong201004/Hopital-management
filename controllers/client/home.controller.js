@@ -54,6 +54,48 @@ module.exports.doctorNurseCreatePost = async (req, res) => {
     res.redirect("back")
 }
 
+
+module.exports.doctorNurseDelete = async (req, res) => {
+
+    const id = req.params.id;
+
+    console.log(id);
+
+    await DoctorNurse.deleteOne({
+        _id: id
+    })
+
+    res.redirect("/doctor-nurse")
+}
+// [GET] /doctor-nurse/edit/:id
+module.exports.doctorNurseEdit = async (req, res) => {
+    const id = req.params.id;
+    const yta = await DoctorNurse.findOne({
+        _id: id,
+    })
+
+
+    res.render("client/pages/doctor-nurse/edit-nurse.pug", {
+        yta: yta
+    });
+}
+
+// [PATCH] /doctor-nurse/edit/:id
+module.exports.doctorNurseEditPatch = async (req, res) => {
+
+    const id = req.params.id;
+    
+    console.log(id);
+
+    await DoctorNurse.updateOne({
+        _id: id
+    }, req.body)
+
+    res.redirect("back")
+    
+}
+
+
 // [GET] /accounts admin
 
 module.exports.accountAdminAccounts = async (req, res) => {
