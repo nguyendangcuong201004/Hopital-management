@@ -87,69 +87,25 @@ html(lang="en")
         button.add-button
           a(href="/management-customer/create") Thêm mới
         button.add-button
-          a(href="/management-customer/create") Xóa
+          a(href="/management-customer/delete") Xóa
       ul.nurse-info
-        .nurse-name
-          li.nurse-more
-            .nurse-content
-              // Thông tin bệnh nhân 1
-              h3 Hoàng Thị Tố My
-              .what
-                h3
-                  i.material-icons wc
-                  | Giới tính: Nữ
-                h3
-                  i.material-icons how_to_reg
-                  | CCCD: 086204004862
-                h3
-                  i.material-icons calendar_month
-                  | Ngày khám gần
-                  |   nhất: 12/03/1998
-          li.nurse-more
-            .nurse-content
-              // Thông tin bệnh nhân 1
-              h3 Hoàng Thị Tố My
-              .what
-                h3
-                  i.material-icons wc
-                  | Giới tính: Nữ
-                h3
-                  i.material-icons how_to_reg
-                  | CCCD: 086204004862
-                h3
-                  i.material-icons calendar_month
-                  | Ngày khám gần
-                  |   nhất: 12/03/1998
-          li.nurse-more
-            .nurse-content
-              // Thông tin bệnh nhân 1
-              h3 Hoàng Thị Tố My
-              .what
-                h3
-                  i.material-icons wc
-                  | Giới tính: Nữ
-                h3
-                  i.material-icons how_to_reg
-                  | CCCD: 086204004862
-                h3
-                  i.material-icons calendar_month
-                  | Ngày khám gần
-                  |   nhất: 12/03/1998
-          li.nurse-more
-            .nurse-content
-              // Thông tin bệnh nhân 1
-              h3 Hoàng Thị Tố My
-              .what
-                h3
-                  i.material-icons wc
-                  | Giới tính: Nữ
-                h3
-                  i.material-icons how_to_reg
-                  | CCCD: 086204004862
-                h3
-                  i.material-icons calendar_month
-                  | Ngày khám gần
-                  |   nhất: 12/03/1998
+        each customer in customers
+          .nurse-name
+            li.nurse-more
+              .nurse-content
+                h3 #{customer.fullName}
+                .what
+                  h3
+                    i.material-icons wc
+                    | Giới tính: #{customer.sex}
+                  h3
+                    i.material-icons how_to_reg
+                    | CCCD: #{customer.cccd}
+                  h3
+                    i.material-icons calendar_month
+                    | Ngày khám gần
+                    |   nhất: 12/03/1998
+                  
     .cpr
       .cpr-contain
         p ©2024 MIMONA *Đã đăng kí bản quyền thương hiệu.
