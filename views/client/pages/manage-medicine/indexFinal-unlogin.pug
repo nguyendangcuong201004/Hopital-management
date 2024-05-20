@@ -25,11 +25,11 @@ body
                 li Đặt lịch 
                 li Tin tức
             ul 
-                  <box-icon name='user-circle'></box-icon>
+                button.login-button
+                    a(href="/login") Đăng nhập
             ul
-                li  Welcome, #{username.username}
-                p
-                    a(href="/manage-medicine") Đăng xuất
+                button.signin-button
+                    a(href="/register") Đăng ký
     .container
         .content
             .info
@@ -92,10 +92,7 @@ body
                                     dataId=item.id
                                     href= `/manage-medicine/edit/${item.id}` 
                                 )
-                                    img(src="client/images/bx-edit-alt.svg")      
-        a( class="Add-button",
-            href= "/manage-medicine/add-medicine"
-        )  +Thêm mới               
+                                    img(src="client/images/bx-edit-alt.svg")                   
     form(
         action="",
         method="POST",
@@ -105,4 +102,3 @@ body
     script(src="client/js/search.js") 
     script(src="client/js/filter.js") 
     script(src="client/js/deleteAddMedicine.js")
-    script(src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js")

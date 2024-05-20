@@ -3,6 +3,7 @@ const DoctorNurse = require("../../models/doctor-nurse.model.js");
 const userCollection = require("../../models/account.js");
 const bcrypt = require('bcrypt');
 const listAccount = require("../../models/account.js");
+const Medicine= require("../../models/medicine");
 
 const crypto = require('crypto');
 
@@ -168,6 +169,49 @@ module.exports.userAccountLoginPost = async (req, res) => {
                 records1: records,
                 records2: findUsername
             });
+        }
+        else if (isPasswordMatch && findUsername.role == "thuoc") {
+            let find={
+                deleted:false
+            }
+            let type=req.query.typeofdisplay;
+            let medicineSearch=req.query.medicineSearch;
+            let medicine;
+            let typeName;
+            if(medicineSearch){
+                const regex= new RegExp(medicineSearch,"i");
+                find.name = regex;
+            }
+            if(type){
+                if(type=="op1"){
+                    console.log("cccccccccc")
+                    medicine= await Medicine.find(find).sort({name:1});
+                    typeName="Sắp xếp theo thứ tự bảng chữ cái"
+                    console.log(medicine);
+                }
+                if(type=="op2"){
+                    medicine= await Medicine.find(find).sort({expiredComp:1});
+                    console.log(medicine);
+                    typeName="Sắp xếp theo hạn sử dụng"
+                }
+        
+            }
+            else{
+                medicine = await Medicine.find(find);
+                typeName="Tìm kiếm theo"
+            // console.log(medicine);
+            }
+            var today = new Date();
+            let currentDate= today.getDate()+(today.getMonth()+1)*30+(today.getFullYear())*365;
+            console.log(currentDate);
+            res.render("client/pages/manage-medicine/indexFinal",{
+                username: findUsername,
+                medicine: medicine,
+                medicineSearch: medicineSearch,
+                typeName:typeName,
+                currentDate: currentDate
+                
+            })
         }
         else {
             req.flash("error", "Tài khoản hoặc mật khẩu không đúng");

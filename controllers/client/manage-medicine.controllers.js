@@ -36,13 +36,15 @@ module.exports.index= async(req, res) => {
     var today = new Date();
     let currentDate= today.getDate()+(today.getMonth()+1)*30+(today.getFullYear())*365;
     console.log(currentDate);
-    res.render("client/pages/manage-medicine/indexFinal",{
+    res.render("client/pages/manage-medicine/indexFinal-unlogin",{
         medicine: medicine,
         medicineSearch: medicineSearch,
         typeName:typeName,
         currentDate: currentDate
     })
  }
+
+
  module.exports.addProduct= async(req, res) => {
      const addMedicine = await AddMedicine.find({
      });

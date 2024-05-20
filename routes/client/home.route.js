@@ -52,8 +52,10 @@ router.post("/register", controller.userAccountPost);
 
 router.post("/login", controller.userAccountLoginPost)
 
+
+router.post("/login", controller.userAccountLoginPost)
+
 router.get('/manage-medicine', manageMedicineControllers.index);
-router.get('/manage-medicine-login', manageMedicineControllers.index2);
 
 
 
