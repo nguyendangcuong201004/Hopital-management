@@ -21,6 +21,8 @@ router.get('/management-customer/create', customerController.createCustomer);
 router.post('/management-customer/create', customerController.createCustomerPost);
 router.get('/management-customer/delete', customerController.deleteCustomer);
 router.post('/management-customer/delete', customerController.deleteCustomerPost);
+router.get('/management-customer/edit', customerController.EditCustomer);
+router.post('/management-customer/edit', customerController.EditCustomerPost);
 module.exports = router;
 
 router.get("/doctor-nurse", controller.doctorNurseUnlogin);

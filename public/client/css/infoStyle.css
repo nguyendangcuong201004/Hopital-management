@@ -1,0 +1,376 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Open Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+
+header nav {
+    align-items: center;
+    display: grid;
+    width: 90%;
+    margin: auto auto;
+    gap: 10px;
+    grid-template-columns: 240px auto 200px;
+    height: 7rem;
+}
+
+header nav .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+header nav .logo:hover {
+    cursor: pointer;
+}
+
+header nav .logo img {
+    height: 8rem;
+}
+
+header nav .sub-nav {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 1rem;
+    width: 60%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+header nav .sub-nav li:hover {
+    cursor: pointer;
+    color: #00439c;
+}
+
+header nav .sub-nav .root {
+    display: flex;
+}
+
+header nav .sub-nav .sub-sub-nav {
+    display: none;
+}
+
+header nav .icon {
+    display: flex;
+    list-style-type: none;
+    gap: 1.1rem;
+}
+
+header nav .icon li:not(li.active) {
+    background-color: #0937ec;
+    border-radius: 30px;
+    padding: 1px 3px;
+}
+
+header nav .icon li.active {
+    border: solid 2px #000;
+    border-radius: 30px;
+    padding: 0px 3px;
+}
+
+header nav .icon li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav .icon li.active a {
+    color: #000;
+
+}
+
+
+
+.portrait {
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.portrait-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.upload-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.portrait-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#portrait-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* .button-interface {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.button-interface .top-button,
+.button-interface .bottom-button {
+    width: 150px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-interface .bottom-button {
+    border-bottom-left-radius: 20px; 
+    margin-top: 10px;
+}
+
+.button-interface .top-button {
+    border-top-left-radius: 20px;
+    margin-top: 10px;
+}
+
+.button-interface .top-button:hover,
+.button-interface .bottom-button:hover {
+    background-color: #0056b3;
+} */
+
+
+.main {
+    height: 40rem;
+    position: relative;
+    background-color: #08254f;
+    width: 100%;
+}
+
+.main .title {
+    text-align: left;
+    margin-left: 75px;
+    font-size: 1.5rem;
+    position: relative;
+    width: 80%;
+    padding-top: 30px;
+}
+
+.main .title .name {
+    left: 4%;
+    color: #fff;
+}
+
+.main .info {
+    width: 80%;
+    height: 500px;
+    position: relative;
+    margin-top: 8px;
+    left: 45%;
+    transform: translate(-50%, 0);
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-radius: 10px;
+}
+
+.main .info .left {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-right: 2px solid #060881;
+    overflow-y: auto;
+}
+
+
+.main-info table {
+    margin-top: 1rem;
+    border-collapse: collapse;
+    width: 95%;
+}
+
+.main-info th, .main-info td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.main-info th {
+    text-align: left;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.main .info .main-info img {
+    position: absolute;
+}
+
+.main .info .main-info b {
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 87%;
+    position: relative;
+}
+
+.main .info .main-info ul {
+    text-align: justify;
+    width: 95%;
+    position: relative;
+    left: 10%;
+}
+
+.exp {
+    display: flex;
+    align-items: flex-start;
+}
+
+.exp ol {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: section;
+    position: relative;
+}
+
+.exp ol li {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.exp ol li::before {
+    content: counter(section);
+    counter-increment: section;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 20px; 
+    height: 20px;
+    border-radius: 50%;
+    background-color: #7fc8d8;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.exp ol li::after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 1.5px;
+    height: 100%;
+    background-color: #7fc8d8;
+    z-index: -1;
+}
+
+
+.main .exp {
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 87%;
+    position: relative;
+}
+
+.main .exp li {
+    text-align: justify;
+    width: 95%;
+    position: relative;
+    left: 10%;
+    margin-top: 10px;
+}
+
+/* .main .left .contact {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.main .left .contact .cont {
+    display: grid;
+    grid-template-columns: 20px auto;
+}
+
+.main .left .contact .cont:hover {
+    cursor: pointer;
+} */
+
+
+.main .info .right {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    width: 99%;
+    height: 90%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+}
+
+.main .button-edit {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.main .button-edit>button {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.main .button-edit>button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.button-row .button-edit {
+    display: inline-block;
+    vertical-align: top; /* Canh chỉnh các button theo chiều dọc */
+}

@@ -1,0 +1,117 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Th&ocirc;ng tin chi ti&#x1EBF;t | Y t&aacute;
+  link(rel='stylesheet' href='/client/css/infoStyle.css')
+  link(rel='stylesheet' href='/client/css/themify-icons.css')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+header
+  nav
+    .logo
+      img(src="client/images/logo3.png" alt='MIMONA logo')
+    ul.sub-nav
+      li Gi&#x1EDB;i thi&#x1EC7;u
+      li Danh s&aacute;ch
+      li.root
+        p H&#x1A1;n
+        span
+          i.tiny.material-icons chevron_right
+        ul.sub-sub-nav
+          li Chi ph&iacute; kh&aacute;m
+          li &Dstrok;&#x1EB7;t l&#x1ECB;ch
+          li Tin t&#x1EE9;c
+    ul.icon
+      li.active
+        a(href='#')
+          i.material-icons home
+      li
+        a(href='#')
+          i.material-icons local_phone
+      li
+        a(href='#')
+          i.material-icons local_post_office
+      li
+        a(href='#')
+          i.material-icons person
+.main
+  //
+    <div class="button-interface">
+    <button class="top-button">Giao diện khách</button>
+    <button class="bottom-button">Giao diện admin</button>
+    </div>
+  .portrait
+    .portrait-container
+      label.upload-label(for='portrait-upload') Upload Image
+      input#portrait-upload(type='file' accept='image/*' onchange='previewImage(event)')
+      .portrait-frame
+        img#portrait-preview(src='assetss/pics/11.png')
+  .button-edit
+    button.add-button
+      a(href="/management-customer/delete") edit
+      
+  .title
+    .name
+      h1 #{customer.fullName}
+  .info
+    .left
+      .main-info
+        b Th&ocirc;ng tin c&aacute; nh&acirc;n
+        table
+          tr
+            th M&atilde; s&#x1ED1;
+            td #{customer._id}
+          tr
+            th Ng&agrave;y sinh
+            td #{customer.birth}
+          tr
+            th Gi&#x1EDB;i t&iacute;nh
+            td #{customer.sex}
+          tr
+            th &Dstrok;&#x1ECB;a ch&#x1EC9;
+            td #{customer.diaChiNha}
+          tr
+            th S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
+            td #{customer.phone}
+      .exp
+        .timeline
+        ol
+          b Th&ocirc;ng tin b&#x1ED5; sung
+          li
+            b Th&oacute;i quen sinh ho&#x1EA1;t:
+            |  [M&ocirc; t&#x1EA3; v&#x1EC1; th&oacute;i quen sinh ho&#x1EA1;t h&agrave;ng ng&agrave;y c&#x1EE7;a b&#x1EC7;nh nh&acirc;n, bao g&#x1ED3;m
+            |                             l&#x1ED1;i s&#x1ED1;ng, th&oacute;i quen &abreve;n u&#x1ED1;ng, h&uacute;t thu&#x1ED1;c, u&#x1ED1;ng r&#x1B0;&#x1EE3;u, t&#x1EAD;p th&#x1EC3; d&#x1EE5;c v&agrave; m&#x1EE9;c &dstrok;&#x1ED9; c&abreve;ng th&#x1EB3;ng]
+          li
+            b L&#x1ECB;ch s&#x1EED; gia &dstrok;&igrave;nh:
+            |  [Th&ocirc;ng tin v&#x1EC1; l&#x1ECB;ch s&#x1EED; b&#x1EC7;nh l&yacute; c&#x1EE7;a c&aacute;c th&agrave;nh vi&ecirc;n trong gia &dstrok;&igrave;nh c&#x1EE7;a
+            |                             b&#x1EC7;nh nh&acirc;n]
+    .right
+      .main-info
+        b Th&ocirc;ng tin y t&#x1EBF;
+        table
+          tr
+            th L&#x1ECB;ch s&#x1EED; b&#x1EC7;nh l&yacute;
+            td [#{customer.tien_su_benh}]
+          tr
+            th D&#x1EA5;u v&#x1EBF;t y t&#x1EBF;
+            td
+              | [Th&ocirc;ng tin v&#x1EC1; c&aacute;c k&#x1EBF;t qu&#x1EA3; x&eacute;t nghi&#x1EC7;m, h&igrave;nh &#x1EA3;nh y h&#x1ECD;c v&agrave; th&ocirc;ng tin kh&aacute;m b&#x1EC7;nh tr&#x1B0;&#x1EDB;c &dstrok;&oacute; c&#x1EE7;a
+              | b&#x1EC7;nh nh&acirc;n]
+          tr
+            th Ti&#x1EC1;n s&#x1EED; d&#x1ECB; &#x1EE9;ng
+            td
+              | [Th&ocirc;ng tin v&#x1EC1; c&aacute;c ti&#x1EC1;n s&#x1EED; d&#x1ECB; &#x1EE9;ng c&#x1EE7;a b&#x1EC7;nh nh&acirc;n, bao g&#x1ED3;m thu&#x1ED1;c, th&#x1EE9;c &abreve;n, v&#x1EAD;t li&#x1EC7;u y t&#x1EBF;]
+          tr
+            th Danh s&aacute;ch thu&#x1ED1;c &dstrok;ang s&#x1EED; d&#x1EE5;ng
+            td
+              | [Danh s&aacute;ch c&aacute;c lo&#x1EA1;i thu&#x1ED1;c m&agrave; b&#x1EC7;nh nh&acirc;n &dstrok;ang s&#x1EED; d&#x1EE5;ng, bao g&#x1ED3;m t&ecirc;n thu&#x1ED1;c, li&#x1EC1;u l&#x1B0;&#x1EE3;ng v&agrave;
+              | t&#x1EA7;n su&#x1EA5;t s&#x1EED; d&#x1EE5;ng]
+      .exp
+        .timeline
+        ol
+          b Ghi ch&uacute;
+          li
+            | [B&#x1EA5;t k&#x1EF3; th&ocirc;ng tin b&#x1ED5; sung ho&#x1EB7;c ghi ch&uacute; n&agrave;o c&oacute; th&#x1EC3; gi&uacute;p b&aacute;c s&itilde; ho&#x1EB7;c nh&acirc;n vi&ecirc;n y t&#x1EBF; hi&#x1EC3;u r&otilde;
+            | h&#x1A1;n v&#x1EC1; t&igrave;nh tr&#x1EA1;ng s&#x1EE9;c kh&#x1ECF;e c&#x1EE7;a b&#x1EC7;nh nh&acirc;n]
+          li Th&iacute;ch giao ti&#x1EBF;p v&#x1EDB;i b&aacute;c s&itilde; n&#x1EEF;
+          li Ng&#x1EA1;i u&#x1ED1;ng thu&#x1ED1;c c&oacute; v&#x1ECB; &dstrok;&#x1EAF;ng

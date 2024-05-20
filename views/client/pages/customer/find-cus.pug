@@ -1,0 +1,40 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Nh&#x1EAD;p th&ocirc;ng tin Benh Nhan; 
+  link(rel='stylesheet' href='/client/css/nhap-nurse.css')
+body
+  section.container
+    .Intro
+      header Nh&#x1EAD;p th&ocirc;ng tin Bệnh Nhân cần tìm
+    .Main
+      form.form(
+        action='/management-customer/edit'
+        method="POST"
+        form-find-customer
+        )
+        .personal-info
+          h2 Th&ocirc;ng tin c&aacute; nh&acirc;n
+          .input-box
+            label(for="fullName") Họ Và Tên 
+            input(
+              type='text' 
+              placeholder='Nguyễn Văn A' 
+              id="fullName"
+              name="fullName"
+              required
+              )
+          
+          .input-box
+            label(for="phone")  SDT
+            input(type='text' placeholder='' id="phone" name="phone")   
+          
+        .XacNhan
+          button(
+            type="submit"
+          ) XÁC NHẬN
+  
+
+    

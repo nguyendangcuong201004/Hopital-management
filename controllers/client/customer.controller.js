@@ -6,8 +6,22 @@ module.exports.managementCustomer = async (req, res) => {
     res.render("client/pages/customer/management-customer.pug", {
         customers: customers
     });
+    // res.render("client/pages/customer/new_index.pug", {
+    //     customers: customers
+    // });
 };
-
+module.exports.EditCustomerPost = async (req, res) => {
+    const { fullName, phone } = req.body;
+    const customer = await Customer.findOne({ fullName: fullName, phone: phone });
+    console.log(customer);
+    res.render("client/pages/customer/new_index.pug", {
+        customer: customer
+    });
+    //res.redirect("/management-customer");
+};
+module.exports.EditCustomer =   (req, res) => {
+    res.render("client/pages/customer/find-cus.pug");
+};
 //  [GET]
 module.exports.createCustomer = (req, res) => {
     res.render("client/pages/customer/nhap-cus.pug");
@@ -43,6 +57,6 @@ module.exports.deleteCustomer = (req, res) => {
 module.exports.deleteCustomerPost = async (req, res) => {
     const { fullName, phone } = req.body;
     await Customer.findOneAndDelete({ fullName: fullName, phone: phone });
-    console.log("da vo ham xoa")
+    
     res.redirect("/management-customer");
 };

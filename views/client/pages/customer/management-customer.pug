@@ -100,11 +100,10 @@ html(lang="en")
                     | Giới tính: #{customer.sex}
                   h3
                     i.material-icons how_to_reg
-                    | CCCD: #{customer.cccd}
-                  h3
-                    i.material-icons calendar_month
-                    | Ngày khám gần
-                    |   nhất: 12/03/1998
+                    | CCCD: #{customer.cccd} 
+                  h3 
+                    button(type="button") 
+                      a(href='/management-customer/edit') Thông tin chi tiết
                   
     .cpr
       .cpr-contain
