@@ -16,7 +16,7 @@ const userAccountSchema = new mongoose.Schema(
     avatar: String,
     passwordResetToken: String,
     passwordResetTokenExpires: Date,
-    role_id: String,
+    role: String,
     status: String,
     deleted: {
         type: Boolean,

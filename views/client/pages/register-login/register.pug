@@ -54,6 +54,14 @@ html(lang="en")
             name="password" 
             type="password"
             )
+        .input-login
+          i.bx.bx-briefcase-alt-2
+            select.selection(name="role")
+              option(hidden='' value="none") Chọn nghề nghiệp
+              option(value="yta")  Y tá
+              option(value="bacsi")  Bác sĩ
+              option(value="benhnhan")  Bệnh nhân
+              option(value="thuoc")  Nhân viên quản lý thiết bị
         .remember-forget
           a(href="/forgotPasswordRequest") Quên mật khẩu
         button.btn(type="submit")
