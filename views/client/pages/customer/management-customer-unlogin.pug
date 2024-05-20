@@ -37,11 +37,11 @@ html(lang="en")
           li Đặt lịch
           li Tin tức
         ul
-            <box-icon name='user-circle'></box-icon>
+          button.login-button
+            a(href="login") Đăng nhập
         ul
-            li Welcome, #{records2.username}
-            p
-            a(href="management-customer") Đăng xuất
+          button.signin-button
+            a(href="register") Đăng ký
     .container
       .content
         .info
@@ -84,10 +84,6 @@ html(lang="en")
           br
           | BỆNH NHÂN
           br
-        button.add-button
-          a(href="/management-customer/create") Thêm mới
-        button.add-button
-          a(href="/management-customer/delete") Xóa
       ul.nurse-info
         each customer in customers
           .nurse-name
@@ -107,5 +103,4 @@ html(lang="en")
                   
     .cpr
       .cpr-contain
-        p ©2024 MIMONA *Đã đăng kí bản quyền thương hiệu.\
-    script(src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js")
+        p ©2024 MIMONA *Đã đăng kí bản quyền thương hiệu.

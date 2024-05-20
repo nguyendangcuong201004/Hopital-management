@@ -3,7 +3,7 @@ const DoctorNurse = require("../../models/doctor-nurse.model.js");
 // Display customers on management page
 module.exports.managementCustomer = async (req, res) => {
     const customers = await Customer.find();
-    res.render("client/pages/customer/management-customer.pug", {
+    res.render("client/pages/customer/management-customer-unlogin.pug", {
         customers: customers
     });
     // res.render("client/pages/customer/new_index.pug", {

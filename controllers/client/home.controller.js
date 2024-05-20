@@ -4,6 +4,8 @@ const userCollection = require("../../models/account.js");
 const bcrypt = require('bcrypt');
 const listAccount = require("../../models/account.js");
 const Medicine= require("../../models/medicine");
+const Customer = require("../../models/customer.model.js");
+
 
 const crypto = require('crypto');
 
@@ -212,6 +214,13 @@ module.exports.userAccountLoginPost = async (req, res) => {
                 currentDate: currentDate
                 
             })
+        }
+        else if (isPasswordMatch && findUsername.role == "benhnhan") {
+            const records = await Customer.find();
+            res.render("client/pages/customer/management-customer.pug", {
+                customers: records,
+                records2: findUsername
+            });
         }
         else {
             req.flash("error", "Tài khoản hoặc mật khẩu không đúng");
