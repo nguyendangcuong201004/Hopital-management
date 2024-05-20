@@ -153,7 +153,15 @@ module.exports.userAccountLoginPost = async (req, res) => {
     }
     else {
         const isPasswordMatch = await bcrypt.compare(req.body.password, findUsername.password);
-        if (isPasswordMatch) {
+        if (isPasswordMatch && findUsername.role == "yta") {
+            const records = await DoctorNurse.find();
+  
+            res.render("client/pages/doctor-nurse/index.pug", {
+                records1: records,
+                records2: findUsername
+            });
+        }
+        else if (isPasswordMatch && findUsername.role == "bacsi") {
             const records = await DoctorNurse.find();
   
             res.render("client/pages/doctor-nurse/index.pug", {
